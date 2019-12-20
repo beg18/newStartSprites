@@ -132,7 +132,7 @@ gulp.task('sprites:assets', function () {
       .pipe(spritesmith({
         imgName: 'sprite.png', //sprite file name
         cssName: '_sprite.less', //sprite less name where are stored image position
-        imgPath: 'i/sprite.png', //path to sprite file
+        imgPath: '../i/sprite.png', //path to sprite file
         cssFormat: 'less', //css format
         cssTemplate: 'template.mustache', //mask file
         cssVarMap: function(sprite) {
