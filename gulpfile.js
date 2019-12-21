@@ -31,9 +31,9 @@ var path = {
         html:   'src/*.html',
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
-         skins:  'src/css/skins/+(blue|red|tomato|pink|purple).less',
-        resimg_1:'src/i/**/*.{jpg,jpeg,webp,raw}',
-        resimg_2:'src/i/**/*.{jpg,jpeg,webp,raw}',
+        skins:  'src/css/skins/+(blue|red|tomato|pink|purple|orange).less',
+        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
+        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/fonts/**/*.*'
     },
@@ -128,19 +128,21 @@ gulp.task('js:assets', function () {
 
 gulp.task('sprites:assets', function () {
   var spriteData =
-    gulp.src('src/i/sprite/*.png') //path to source
+    gulp.src('src/i/sprite/*.*') //path to source
       .pipe(spritesmith({
         imgName: 'sprite.png', //sprite file name
-        cssName: '_sprite.less', //sprite less name where are stored image position
-        imgPath: '../i/sprite.png', //path to sprite file
+        cssName: 'sprite-position.less', //sprite less name where are stored image position
+        padding: 15,
+        imgPath: '../i/sprite/sprite.png', //path to sprite file
         cssFormat: 'less', //css format
+        algorithm: 'binary-tree',
         cssTemplate: 'template.mustache', //mask file
         cssVarMap: function(sprite) {
           sprite.name = 's-' + sprite.name //sprite name format, ex. 's-logo' for logo.png
         }
       }));
     spriteData.img
-      .pipe(gulp.dest('assets/i/')); //path to save sprite file on build
+      .pipe(gulp.dest('assets/i/sprite')); //path to save sprite file on build
     spriteData.css
       .pipe(gulp.dest('src/css/')); //path to save style file on build
 });
@@ -200,7 +202,7 @@ gulp.task('resimg_2:assets', function() {
 
 // Clean @*x IMG's
 gulp.task('cleanimg', function() {
-    return del(['assets/i/@*'], { force: true }) // удалить все папки кроме _src gulp cleanimg
+    return del(['assets/i/@*/sprite'], { force: true }) // удалить все папки кроме _src gulp cleanimg
 });
 
 // Clean @*x IMG's
@@ -316,4 +318,4 @@ gulp.task('browserSync',['css:assets','skins:assets' ,'js:assets'], function () 
 
 
 gulp.task('default', ['browserSync', 'assets', 'watch']);
-gulp.task('clean', ['cleanLess']);
+gulp.task('clean', ['cleanimg','cleanLess']);
