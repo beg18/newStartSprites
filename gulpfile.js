@@ -1,32 +1,31 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
     prefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps'),
+    cssbeautify = require("gulp-cssbeautify"),
+    cssnano = require('gulp-cssnano'),
+    removeComments = require('gulp-strip-css-comments'),
+    cheerio = require('gulp-cheerio'),
     imagemin = require('gulp-imagemin'),
-    imageminJpegRecompress = require('imagemin-jpeg-recompress'),
-    pngquant = require('imagemin-pngquant'),
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
-    cheerio = require('gulp-cheerio'),
-    run = require("run-sequence")
-    replace = require('gulp-replace'),
-    watch = require('gulp-watch'),
-    uglify = require('gulp-uglify'),
+    imageminJpegRecompress = require('imagemin-jpeg-recompress'),
+    pngquant = require('imagemin-pngquant'),
     plumber = require("gulp-plumber"),
+    replace = require('gulp-replace'),
     rigger = require('gulp-rigger'),
-    cssbeautify = require("gulp-cssbeautify"),
-    removeComments = require('gulp-strip-css-comments'),
-    cssnano = require('gulp-cssnano'),
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch'),
     rimraf = require('rimraf'),
     gcmq = require('gulp-group-css-media-queries'),
-    rsync        = require('gulp-rsync'),
+    sourcemaps = require('gulp-sourcemaps'),
+    run = require("run-sequence"),
+    del          = require('del'),
     newer        = require('gulp-newer'),
     rename       = require('gulp-rename'),
     responsive   = require('gulp-responsive'),
     spritesmith = require("gulp.spritesmith"),
-    del          = require('del'),
+    rsync        = require('gulp-rsync'),
     browserSync = require('browser-sync').create();
-
 
 var path = {
     // Откуда брать исходники
@@ -34,7 +33,7 @@ var path = {
         html:   'src/*.html',
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
-        skins:  'src/css/skins/+(blue|red|tomato|pink|purple\green|orange).less',
+        skins:  'src/css/skins/+(blue|red|tomato|pink|purple|green|orange).less',
         resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         svg:    'src/i/**/*.svg',
@@ -65,10 +64,24 @@ var path = {
     clean: './assets'
 };
 
+gulp.task('browserSync',['css:assets','skins:assets' ,'js:assets'], function () {
+    browserSync.init({
+        server: {
+            baseDir: path.assets
+        },
+        // notify: false,
+        // online: false, // Work offline without internet connection
+        // tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
+        //tunnel: true
+    });
+});
+
+
+
 gulp.task('html:assets', function () {
     // Выберем файлы по нужному пути
     gulp.src(path.src.html)
-        .pipe(plumber())
+         .pipe(plumber())
         // Прогоним через rigger
         .pipe(rigger())
         // Переместим их в папку assets
@@ -77,13 +90,11 @@ gulp.task('html:assets', function () {
 });
 
 
-
-
 gulp.task('css:assets', function () {
     // Выберем наш style.less
     gulp.src(path.src.css)
-         .pipe(plumber())
-         .pipe(sourcemaps.init())
+        .pipe(plumber())
+        .pipe(sourcemaps.init())
         // Скомпилируем
         .pipe(less())
         .pipe(gcmq())
@@ -92,7 +103,7 @@ gulp.task('css:assets', function () {
            browsers: ['last 8 version']
         }))
         .pipe(cssbeautify())
-         .pipe(gulp.dest(path.assets.css))
+        .pipe(gulp.dest(path.assets.css))
         // Сожмем
         .pipe(cssnano({
           zindex: false,
@@ -114,7 +125,7 @@ gulp.task('css:assets', function () {
 gulp.task('skins:assets', function () {
     // Выберем наш style.less
     gulp.src(path.src.skins)
-       .pipe(plumber())
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         // Скомпилируем
         .pipe(less())
@@ -124,7 +135,7 @@ gulp.task('skins:assets', function () {
            browsers: ['last 8 version']
         }))
         .pipe(cssbeautify())
-         .pipe(gulp.dest(path.assets.skins))
+        .pipe(gulp.dest(path.assets.skins))
         // Сожмем
         .pipe(cssnano({
           zindex: false,
@@ -143,7 +154,6 @@ gulp.task('skins:assets', function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
-
 gulp.task('js:assets', function () {
     // Выберем файлы по нужному пути
     gulp.src(path.src.js)
@@ -157,33 +167,9 @@ gulp.task('js:assets', function () {
             suffix: ".min",
             extname: ".js"
         }))
-        // Переместим готовый файл в assets
         .pipe(gulp.dest(path.assets.js))
         .pipe(browserSync.reload({stream: true}));
 });
-
-
-gulp.task('sprites:assets', function () {
-  var spriteData =
-    gulp.src('src/i/sprite/*.*') //path to source
-      .pipe(spritesmith({
-        imgName: 'sprite.png', //sprite file name
-        cssName: 'sprite-position.less', //sprite less name where are stored image position
-        padding: 15,
-        imgPath: '../i/sprite/sprite.png', //path to sprite file
-        cssFormat: 'less', //css format
-        algorithm: 'binary-tree',
-        cssTemplate: 'template.mustache', //mask file
-        cssVarMap: function(sprite) {
-          sprite.name = 's-' + sprite.name //sprite name format, ex. 's-logo' for logo.png
-        }
-      }));
-    spriteData.img
-      .pipe(gulp.dest('assets/i/sprite')); //path to save sprite file on build
-    spriteData.css
-      .pipe(gulp.dest('src/css/')); //path to save style file on build
-});
-
 
 // Responsive Images
 var quality = 95; // Responsive images quality
@@ -235,17 +221,6 @@ gulp.task('resimg_2:assets', function() {
         .pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
         .pipe(gulp.dest(path.assets.resimg_2))
 });
-//gulp.task('img:assets', gulp.series('resimg_1:assets', 'resimg_2:assets', bsReload));
-
-// Clean @*x IMG's
-gulp.task('cleanimg', function() {
-    return del(['assets/i/@*/sprite'], { force: true }) // удалить все папки кроме _src gulp cleanimg
-});
-
-// Clean @*x IMG's
-gulp.task('cleanLess', function() {
-    return del(['assets/css/**/*less'], { force: true }) // удалить все папки кроме _src gulp cleanimg
-});
 
 gulp.task('svg:assets', function () {
     gulp.src(path.src.svg)
@@ -274,6 +249,40 @@ gulp.task('svg:assets', function () {
         .pipe(gulp.dest(path.assets.svg));
 });
 
+gulp.task('sprites:assets', function () {
+  var spriteData =
+    gulp.src('src/i/sprite/*.*') //path to source
+      .pipe(spritesmith({
+        imgName: 'sprite.png', //sprite file name
+        cssName: 'sprite-position.less', //sprite less name where are stored image position
+        padding: 15,
+        imgPath: '../i/sprite/sprite.png', //path to sprite file
+        cssFormat: 'less', //css format
+        algorithm: 'binary-tree',
+        cssTemplate: 'template.mustache', //mask file
+        cssVarMap: function(sprite) {
+          sprite.name = 's-' + sprite.name //sprite name format, ex. 's-logo' for logo.png
+        }
+      }));
+    spriteData.img
+      .pipe(gulp.dest('assets/i/sprite')); //path to save sprite file on build
+    spriteData.css
+      .pipe(gulp.dest('src/css/')); //path to save style file on build
+});
+
+//gulp.task('img:assets', gulp.series('resimg_1:assets', 'resimg_2:assets', bsReload));
+
+// Clean @*x IMG's
+gulp.task('cleanimg', function() {
+    return del(['assets/i/@*/sprite'], { force: true }) // удалить все папки кроме _src gulp cleanimg
+});
+
+// Clean @*x IMG's
+gulp.task('cleanLess', function() {
+    return del(['assets/css/**/*less'], { force: true }) // удалить все папки кроме _src gulp cleanimg
+});
+
+
 gulp.task('fonts:assets', function() {
     gulp.src(path.src.fonts)
     // Переместим шрифты в assets
@@ -301,8 +310,7 @@ gulp.task('assets', [
     'sprites:assets',
     'svg:assets',
     'fonts:assets',
-    'gcmd:assets',
-    'clean'
+    'gcmd:assets'
 ]);
 
 
@@ -342,17 +350,6 @@ gulp.task('watch' , function() {
 });
 
 
-gulp.task('browserSync',['css:assets','skins:assets' ,'js:assets'], function () {
-    browserSync.init({
-        server: {
-            baseDir: path.assets
-        },
-        // notify: false,
-        // online: false, // Work offline without internet connection
-        // tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
-        //tunnel: true
-    });
-});
 
 
 gulp.task('default', ['browserSync', 'assets', 'watch']);
