@@ -1,0 +1,51 @@
+#slide_1 {
+	margin:auto
+}
+#slide_1 .caption {
+	padding:10px 0;
+}
+#slide_1 .next,
+#slide_1 .prev {
+	width:29px;
+	height:29px;
+	display:block;
+	text-indent:-9999px;
+	background:url(../pic/arr.gif) 0 0 no-repeat;
+	margin:0 0 1px 0;
+	position:absolute;
+	top:0; 
+	right:0;
+	z-index:3;
+	opacity:0.5
+}
+#slide_1 .prev { 
+	top:30px;
+	background-position:0 -29px;
+}
+#slide_1 .next:hover,
+#slide_1 .prev:hover {
+	opacity:1
+}
+#slide_1 .dotted {
+	position:absolute;
+	left:0;
+	bottom:0;
+	z-index:3
+}
+#slide_1 .dottedItem {
+	width:29px;
+	height:29px; 
+	background:#000;
+	display:inline-block;
+	vertical-align:top;
+	text-align:center;
+	font:11px/28px Arial, Helvetica, sans-serif;
+	margin:0 1px 0 0;
+	color:#fff;
+	cursor:pointer;
+	opacity:0.5;
+}
+#slide_1 .dottedItem:hover,
+#slide_1 .dottedItem.cur {
+	opacity:1
+}

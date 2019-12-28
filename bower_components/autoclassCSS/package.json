@@ -1,0 +1,31 @@
+{
+    "name": "autoclasscss",
+    "description": "CSS skeleton generator",
+    "version": "0.0.5",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tenorok/autoclassCSS.git"
+    },
+    "author": {
+        "name": "Artem Kurbatov",
+        "email": "mail@tenorok.ru",
+        "homepage": "http://tenorok.ru"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "bower": "~1.2",
+        "optimist": "0.6.0",
+        "vow": "~0.3"
+    },
+    "devDependencies": {
+        "mocha": "~1.13"
+    },
+    "main": "main.js",
+    "bin": {
+        "autoclasscss": "./bin/autoclasscss"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/mocha --reporter list test/cli/",
+        "jsdoc": "./bower_components/jsdoc/jsdoc autoclasscss.js -d jsdoc"
+    }
+}

@@ -33,10 +33,7 @@ Thumbs.db
 .hg
 .idea
 .svn
-bower_components
-dist
-src
- _src
+
 # Node.JS
 node_modules
 npm-debug.log
