@@ -34,7 +34,7 @@ var path = {
         html:   'src/*.html',
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
-        skins:  'src/css/skins/+(blue|red|tomato|pink|purple|orange).less',
+        skins:  'src/css/skins/+(blue|red|tomato|pink|purple\green|orange).less',
         resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         svg:    'src/i/**/*.svg',
