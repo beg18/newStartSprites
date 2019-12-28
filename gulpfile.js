@@ -12,17 +12,20 @@ var gulp = require('gulp'),
     replace = require('gulp-replace'),
     watch = require('gulp-watch'),
     uglify = require('gulp-uglify'),
+    plumber = require("gulp-plumber"),
     rigger = require('gulp-rigger'),
+    cssbeautify = require("gulp-cssbeautify"),
+    removeComments = require('gulp-strip-css-comments'),
     cssnano = require('gulp-cssnano'),
     rimraf = require('rimraf'),
     gcmq = require('gulp-group-css-media-queries'),
-    browserSync = require('browser-sync').create(),
     rsync        = require('gulp-rsync'),
     newer        = require('gulp-newer'),
     rename       = require('gulp-rename'),
     responsive   = require('gulp-responsive'),
     spritesmith = require("gulp.spritesmith"),
-    del          = require('del');
+    del          = require('del'),
+    browserSync = require('browser-sync').create();
 
 
 var path = {
@@ -32,8 +35,8 @@ var path = {
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
         skins:  'src/css/skins/+(blue|red|tomato|pink|purple|orange).less',
-        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
-        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
+        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
+        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/fonts/**/*.*'
     },
@@ -54,57 +57,18 @@ var path = {
         js:     'src/js/*.js',
         css:    'src/css/**/*.less',
         skins:  'src/css/skins/**/*.less',
-        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
-        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw}',
+        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
+        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/css/fonts/**/*.*'
     },
     clean: './assets'
 };
 
-
-
-gulp.task('css:assets', function () {
-    // Выберем наш style.less
-    gulp.src(path.src.css)
-        .pipe(sourcemaps.init())
-        // Скомпилируем
-        .pipe(less())
-        .pipe(gcmq())
-        // Добавим вендорные префиксы
-        .pipe(prefixer({
-           browsers: ['last 2 version']
-        }))
-        // Сожмем
-        //.pipe(cssnano({zindex: false}))
-        //.pipe(sourcemaps.write())
-        // Переместим в assets
-        .pipe(gulp.dest(path.assets.css))
-        .pipe(browserSync.reload({stream: true}));
-});
-
-gulp.task('skins:assets', function () {
-    // Выберем наш style.less
-    gulp.src(path.src.skins)
-        .pipe(sourcemaps.init())
-        // Скомпилируем
-        .pipe(less())
-        .pipe(gcmq())
-        // Добавим вендорные префиксы
-        .pipe(prefixer({
-           browsers: ['last 2 version']
-        }))
-        // Сожмем
-        //.pipe(cssnano({zindex: false}))
-        //.pipe(sourcemaps.write())
-        // Переместим в assets
-        .pipe(gulp.dest(path.assets.skins))
-        .pipe(browserSync.reload({stream: true}));
-});
-
 gulp.task('html:assets', function () {
     // Выберем файлы по нужному пути
     gulp.src(path.src.html)
+        .pipe(plumber())
         // Прогоним через rigger
         .pipe(rigger())
         // Переместим их в папку assets
@@ -113,13 +77,86 @@ gulp.task('html:assets', function () {
 });
 
 
+
+
+gulp.task('css:assets', function () {
+    // Выберем наш style.less
+    gulp.src(path.src.css)
+         .pipe(plumber())
+         .pipe(sourcemaps.init())
+        // Скомпилируем
+        .pipe(less())
+        .pipe(gcmq())
+        // Добавим вендорные префиксы
+        .pipe(prefixer({
+           browsers: ['last 8 version']
+        }))
+        .pipe(cssbeautify())
+         .pipe(gulp.dest(path.assets.css))
+        // Сожмем
+        .pipe(cssnano({
+          zindex: false,
+            discardComments: {
+              removeAll: true
+            }
+          }))
+        .pipe(sourcemaps.write())
+        .pipe(removeComments())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".css"
+        }))
+        // Переместим в assets
+        .pipe(gulp.dest(path.assets.css))
+        .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('skins:assets', function () {
+    // Выберем наш style.less
+    gulp.src(path.src.skins)
+       .pipe(plumber())
+        .pipe(sourcemaps.init())
+        // Скомпилируем
+        .pipe(less())
+        .pipe(gcmq())
+        // Добавим вендорные префиксы
+        .pipe(prefixer({
+           browsers: ['last 8 version']
+        }))
+        .pipe(cssbeautify())
+         .pipe(gulp.dest(path.assets.skins))
+        // Сожмем
+        .pipe(cssnano({
+          zindex: false,
+            discardComments: {
+              removeAll: true
+            }
+          }))
+        .pipe(sourcemaps.write())
+        .pipe(removeComments())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".css"
+        }))
+        // Переместим в assets
+        .pipe(gulp.dest(path.assets.skins))
+        .pipe(browserSync.reload({stream: true}));
+});
+
+
 gulp.task('js:assets', function () {
     // Выберем файлы по нужному пути
     gulp.src(path.src.js)
+        .pipe(plumber())
         // Прогоним через rigger
         .pipe(rigger())
+        .pipe(gulp.dest(path.assets.js))
         // Сожмем js
         .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"
+        }))
         // Переместим готовый файл в assets
         .pipe(gulp.dest(path.assets.js))
         .pipe(browserSync.reload({stream: true}));
@@ -264,7 +301,8 @@ gulp.task('assets', [
     'sprites:assets',
     'svg:assets',
     'fonts:assets',
-    'gcmd:assets'
+    'gcmd:assets',
+    'clean'
 ]);
 
 
