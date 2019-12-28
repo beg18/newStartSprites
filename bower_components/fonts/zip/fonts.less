@@ -1,0 +1,109 @@
+/*http://chimir.ru/post/39:
+@font-face mixin.Пример использования:
+@family: имя шрифта (обязательно).
+@filename: название шрифта, так же используется в качестве id для шрифта в формате svg
+(обязательно, по умолчанию используется имя шрифта).
+@weight: жирность шрифта (не обязательно, по умолчанию normal).
+@style: стиль шрифта (не обязательно, по умолчанию normal).
+
+.font-face(Roboto Slab, RobotoSlab-Bold, bold);                           
+@font-face{
+        font-family: @family;
+        src:url('@{filename}.eot');
+        src:url('@{filename}.eot?#iefix') format('embedded-opentype'),
+                url('@{filename}.woff') format('woff'),
+                url('@{filename}.ttf') format('truetype'),
+                url('@{filename}.svg#@{filename}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+
+
+    .font-face(@family, @filename: @family, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('fonts/@{filename}.eot');
+        src:url('fonts/@{filename}.eot?#iefix') format('embedded-opentype'),
+                url('fonts/@{filename}.woff') format('woff'),
+                url('fonts/@{filename}.ttf') format('truetype'),
+                url('fonts/@{filename}.svg#@{filename}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.font-face('raleway', ralewaylight);
+.font-face('raleway', ralewayregular);
+.font-face('raleway', ralewaysemibold);
+.font-face('raleway', ralewaybold);
+.font-face('lobsterregular', lobster-regular-webfont);
+.font-face(Arabic, Arabic);
+.font-face('FK Aladdin', 'FKAladdin');
+
+=====================================================
+@font-face mixin.
+======================================================
+Предварительно задав переменные с необходимыми шрифтами:
+=======================================================
+@fontRegular: 'OpenSans';
+@fontBold: '@{fontRegular}-Bold';
+=====================================================
+Потом вызываю её:
+=====================================================
+@font-face {
+  .font(@fontRegular);
+}
+@font-face {
+  .font(@fontRegular; @fontBold; bold);
+}
+*/
+
+
+
+//FK Aladdin
+@aladdin: 'Aladdin';
+@urlAladdin: 'FKAladdin';
+
+//Open Sans
+@open: 'OpenSans ';
+@urlOpen1: '@{open}Light';
+@urlOpen2: '@{open}Regular';
+@urlOpen3: '@{open}SemiBold';
+@urlOpen4: '@{open}Bold';
+
+.font(@fontName; @urlName: @fontName; @weight: normal; @style: normal) {
+  font-family: '@{fontName}';
+  src: url('/fonts/@{urlName}/@{urlName}.eot');
+  src: url('/fonts/@{urlName}/@{urlName}.eot#iefix') format('embedded-opentype'),
+  url('/fonts/@{urlName}/@{urlName}.woff') format('woff'),
+  url('/fonts/@{urlName}/@{urlName}.ttf') format('truetype'),
+  url('/fonts/@{urlName}/@{urlName}.svg') format('svg');
+  font-weight: @weight;
+  font-style: @style;
+}
+
+.font(@fontName; @urlName: @fontName; @weight: normal; @style: normal) {
+  font-family: '@{fontName}';
+  src: url('@{urlName}/@{urlName}.eot');
+  src: url('@{urlName}/@{urlName}.eot#iefix') format('embedded-opentype'),
+  url('@{urlName}/@{urlName}.woff') format('woff'),
+  url('@{urlName}/@{urlName}.ttf') format('truetype'),
+  url('@{urlName}/@{urlName}.svg') format('svg');
+  font-weight: @weight;
+  font-style: @style;
+}
+
+@font-face {
+  .font(@aladdin);
+  .font(@open);
+}
+@font-face {
+  .font(@aladdin; @urlAladdin; 400);
+
+  .font(@open; @urlOpen1; 300);
+  .font(@open; @urlOpen2; 400);
+  .font(@open; @urlOpen3; 600);
+  .font(@open; @urlOpen4; 700);
+}
+
+@import url("Arabic/Arabic.eot");

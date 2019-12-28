@@ -1,0 +1,131 @@
+
+/*
+http://chimir.ru/post/39:
+@font-face mixin.Пример использования:
+@family: имя шрифта (обязательно).
+@filename: название шрифта, так же используется в качестве id для шрифта в формате svg
+(обязательно, по умолчанию используется имя шрифта).
+@weight: жирность шрифта (не обязательно, по умолчанию normal).
+@style: стиль шрифта (не обязательно, по умолчанию normal).
+
+.font-face(Roboto Slab, RobotoSlab-Bold, bold);
+ .font-face(@family, @filename: @family, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('fonts/@{filename}/@{filename}.eot');
+        src:url('fonts/@{filename}/@{filename}.eot?#iefix') format('embedded-opentype'),
+                url('fonts/@{filename}/@{filename}.woff') format('woff'),
+                url('fonts/@{filename}/@{filename}.ttf') format('truetype'),
+                url('fonts/@{filename}/@{filename}.svg#@{filename}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+.font-face(Raleway, RalewayLight, 300);
+.font-face(Raleway, RalewayRegular, 400);
+.font-face(Raleway, RalewaySemiBold, 600);
+.font-face(Raleway, RalewayBold, 700);
+
+.font-face(Open Sans, OpenSansLight, 300);
+.font-face(Open Sans, OpenSansRegular, 400);
+.font-face(Open Sans, OpenSansSemiBold, 600);
+.font-face(Open Sans, OpenSansBold, 700);
+
+.font-face(lobstertwo, lobstertwo-regular, 400);
+.font-face(lobstertwo, lobstertwo-italic, 400, italic);
+.font-face(lobstertwo, lobstertwo-bolditalic, 700, italic);
+.font-face(lobstertwo, lobstertwo-bold, 700);
+
+.font-face(Arabic, Arabic, 400);
+.font-face(Exo2Bold, Exo2Bold, 400);
+
+//../fonts
+*/
+
+// font-weight helper:
+
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin; 300 Book or Demi;                                      
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black
+
+.font(@f-name, @f-style, @f-weight, @f-url) {
+    @font-face {
+        font-family: @f-name;
+        font-style: @f-style;
+        font-weight: @f-weight;
+        src: url(@f-url) format('woff2');
+    }
+
+}
+
+.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
+.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
+.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
+.font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2');
+.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.eot');
+.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.ttf');
+.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.woff');
+.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.eot');
+.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.ttf');
+.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.woff');
+.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.eot');
+.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.ttf');
+.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.woff');
+.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.eot');
+.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.ttf');
+.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.woff');
+.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.eot');
+.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.ttf');
+.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.woff');
+
+.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.eot');
+.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.ttf');
+.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.woff');
+.font('OpenSans', normal,400, '../fonts/OpenSansRegular/OpenSansRegular.eot');
+.font('OpenSans', normal,400, '../fonts/OpenSansRegular/OpenSansRegular.ttf');
+.font('OpenSans', normal,400, '../fontsOpenSansRegular/OpenSansRegular.woff');
+.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.eot');
+.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.ttf');
+.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.woff');
+.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.eot');
+.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.ttf');
+.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.woff');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
