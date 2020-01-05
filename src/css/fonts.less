@@ -39,6 +39,23 @@ http://chimir.ru/post/39:
 .font-face(Arabic, Arabic, 400);
 .font-face(Exo2Bold, Exo2Bold, 400);
 
+.font(@f-name, @f-style, @f-weight, @f-url) {
+    @font-face {
+        font-family: @f-name;
+        font-style: @f-style;
+        font-weight: @f-weight;
+        src: url(@f-url) format('woff2');
+    }
+
+}
+
+
+.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
+.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
+.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
+
+
+
 //../fonts
 */
 
@@ -53,49 +70,38 @@ http://chimir.ru/post/39:
 // 800 Black or Extra Bold or Heavy;
 // 900 Extra Black or Fat or Ultra Black
 
-.font(@f-name, @f-style, @f-weight, @f-url) {
-    @font-face {
-        font-family: @f-name;
-        font-style: @f-style;
-        font-weight: @f-weight;
-        src: url(@f-url) format('woff2');
-    }
 
+.add-font(@font-url, @font-name, @weight: normal, @style: normal) {
+  font-family: @font-name;
+  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
+  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
+  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
+  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
+  font-weight: @weight;
+  font-style: @style;
 }
 
-.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
-.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
-.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
-.font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2');
-.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.eot');
-.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.ttf');
-.font('Raleway', normal,400, '../fonts/RalewayRegular/RalewayRegular.woff');
-.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.eot');
-.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.ttf');
-.font('Raleway', normal,600, '../fonts/RalewaySemiBold/RalewaySemiBold.woff');
-.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.eot');
-.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.ttf');
-.font('Raleway', normal,700, '../fonts/RalewayBold/RalewayBold.woff');
-.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.eot');
-.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.ttf');
-.font('PF Centro Slab Pro', normal,500, '../fonts/PFCentroSlabProMedium/PFCentroSlabProMedium.woff');
-.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.eot');
-.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.ttf');
-.font('PF Centro Slab Pro', normal,600, '../fonts/PFCentroSlabProBold/PFCentroSlabProBold.woff');
 
-.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.eot');
-.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.ttf');
-.font('OpenSans', normal,200, '../fonts/OpenSansLight/OpenSansLight.woff');
-.font('OpenSans', normal,400, '../fonts/OpenSansRegular/OpenSansRegular.eot');
-.font('OpenSans', normal,400, '../fonts/OpenSansRegular/OpenSansRegular.ttf');
-.font('OpenSans', normal,400, '../fontsOpenSansRegular/OpenSansRegular.woff');
-.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.eot');
-.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.ttf');
-.font('OpenSans', normal,600, '../fonts/OpenSansSemiBold/OpenSansSemiBold.woff');
-.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.eot');
-.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.ttf');
-.font('OpenSans', normal,700, '../fonts/OpenSansBold/OpenSansBold.woff');
+// Segoe Bold
+@font-face {
+  .add-font('SegoeUIBold/SegoeUIBold', 'Segoe', 600);
+}
 
+// Segoe Light
+@font-face {
+  .add-font('SegoeUILight/SegoeUILight', 'Segoe', 300);
+}
+
+// Segoe Regular
+@font-face {
+  .add-font('SegoeUIRegular/SegoeUIRegular', 'Segoe', 400);
+}
+
+// Segoe Semibold
+@font-face {
+  .add-font('SegoeUISemiBold/SegoeUISemiBold', 'Segoe', 500);
+}
 
 
 

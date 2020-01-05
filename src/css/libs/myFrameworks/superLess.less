@@ -372,6 +372,10 @@ i.material-icons {
     margin-bottom: "@{@marBotPx}px";
     margin-bottom: "@{@marBotRem}rem";
 }
+.transition-my () {}
+.transition-my (@prop: all, @time: 0.3s, @ease: ease-in-out) {
+  transition: @prop @time @ease;
+}
 
 .round(@r: 3) {
     border-radius: ~"@{r}px";
@@ -3644,6 +3648,36 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
     background-color: fadeout(@color, @precent);
     z-index: 2;
 }
+.overlay-before () {  }
+.overlay-before (@position: absolute; @color:#394b5f; @precent: 25%) {
+  position: relative;
+  z-index: 1;
+  &::before {
+    position: @position;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@color, @opacity);
+    z-index: -1;
+  }
+}
+.overlay-after () {  }
+.overlay-after (@position: absolute; @color:#394b5f; @precent: 25%) {
+  position: relative;
+  z-index: 1;
+  &::after {
+    position: @position;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@color, @opacity);
+    z-index: -1;
+  }
+}
 
 .modal(@px: 300; @position: fixed) {
     display: none;
@@ -4549,6 +4583,15 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
      display: inline-block;
      vertical-align: middle;
 }
+}
+/*==================================================*/
+.bg-img() {}
+.bg-img(@img, @pos:center center, @att:scroll) {
+  background-image: url('@{img-folder}@{img}');
+  background-position: @pos;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: @att;
 }
 
 /*==================================================*/
