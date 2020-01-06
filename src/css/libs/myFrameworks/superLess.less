@@ -837,6 +837,7 @@ i.material-icons {
 
 .button (@line-height:30; @padding: 16; @background-color: black; @color: white; @content) {
   @remline: (@line-height/@fontBasePx);
+  @remPad: (@padding/@fontBasePx);
   @bgc: @background-color;
   @c:  @color;
   border: none;
@@ -851,6 +852,7 @@ i.material-icons {
   line-height: ~"@{line-height}px";
   line-height: ~"@{remline}rem";
   padding: 0 ~"@{padding}px";
+  padding: 0 ~"@{remPad}rem";
   box-sizing: border-box;
   color: @c;
   background-color: @bgc;
@@ -873,6 +875,7 @@ i.material-icons {
 
 .button-width(@width: 200 ; @line-height:30; @padding: 16; @background-color: black; @color: white; @content) {
   @remline: (@line-height/@fontBasePx);
+  @remPad: (@padding/@fontBasePx);
   @bgc: @background-color;
   @c:  @color;
   @pxWidth: @width;
@@ -891,6 +894,7 @@ i.material-icons {
   line-height: ~"@{line-height}px";
   line-height: ~"@{remline}rem";
   padding: 0 ~"@{padding}px";
+  padding: 0 ~"@{remPad}rem";
   box-sizing: border-box;
   color: @c;
   background-color: @bgc;
@@ -2075,7 +2079,20 @@ i.material-icons {
   top: 6px;
 }
 
+.iframe-responsive-wrapper () {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
 
+   iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+}
 
 .responsive() {
   display: block;
