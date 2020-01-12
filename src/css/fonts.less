@@ -81,28 +81,100 @@ http://chimir.ru/post/39:
   font-weight: @weight;
   font-style: @style;
 }
-
-
-// Segoe Bold
+/*========================
+https://icomoon.io/
+нажимаем на IcoMoon App-> нажимаем на кнопку с книжками add Icon library->
+выбираем нужную библиотеку-> например Font Awesome-> ищем нужные иконки->
+выбираем их-> нажимаем на кнопку Generate Font-> download->
+распакуем архив шрифты из папки font переносим в папку font проекта->
+код из файла style.css вставим в код font.less 
+========================*/
 @font-face {
-  .add-font('SegoeUIBold/SegoeUIBold', 'Segoe', 600);
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?fzjwo');
+  src:  url('../fonts/icomoon.eot?fzjwo#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?fzjwo') format('truetype'),
+    url('../fonts/icomoon.woff?fzjwo') format('woff'),
+    url('../fonts/icomoon.svg?fzjwo#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 
-// Segoe Light
-@font-face {
-  .add-font('SegoeUILight/SegoeUILight', 'Segoe', 300);
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-// Segoe Regular
-@font-face {
-  .add-font('SegoeUIRegular/SegoeUIRegular', 'Segoe', 400);
+.icon-envelope-o:before {
+  content: "\f003";
+}
+.icon-check:before {
+  content: "\f00c";
+}
+.icon-map-marker:before {
+  content: "\f041";
+}
+.icon-phone:before {
+  content: "\f095";
+}
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+.icon-angle-left:before {
+  content: "\f104";
+}
+.icon-angle-right:before {
+  content: "\f105";
+}
+.icon-quote-right:before {
+  content: "\f10e";
+}
+.icon-anchor-solid:before {
+  content: "\e900";
+}
+.icon-apple-brands:before {
+  content: "\e901";
+}
+.icon-thumbs-down-solid:before {
+  content: "\e902";
 }
 
-// Segoe Semibold
+
+// Roboto Light
 @font-face {
-  .add-font('SegoeUISemiBold/SegoeUISemiBold', 'Segoe', 500);
+  .add-font('RobotoLight/RobotoLight', 'Roboto', 300);
 }
 
+// Roboto Regular
+@font-face {
+  .add-font('RobotoRegular/RobotoRegular', 'Roboto', 400);
+}
+
+// RRoboto Medium
+@font-face {
+  .add-font('RobotoMedium/RobotoMedium', 'Roboto', 500);
+}
+
+// PTSerif-Regular
+@font-face {
+  .add-font('PTSerif-Regular/PTSerif-Regular', 'PTSerif', 400);
+}
+
+// PTSerif-Bold
+@font-face {
+  .add-font('PTSerif-Bold/PTSerif-Bold', 'PTSerif', 700);
+}
 
 
 

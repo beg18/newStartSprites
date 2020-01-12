@@ -39,7 +39,14 @@ Table of Content
 
 /* 2. Buttons
 ===========================*/
-
+.btn {
+    .button(45, 20, @lt-color,#1b1b1b,{
+    .ff-roboto();
+    .rem-size(16);
+     padding-left: 50px;
+    border-radius: 0;
+    });
+}
 
 /* 3. Form elements
 ===========================*/
@@ -72,12 +79,11 @@ body textarea:required:valid {
 /*4. Font family
  @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700');
 
-.ff-roboto (@font-weight:400; @font-style: normal;){
-    font-family: 'Roboto', @ff-s-serifArial;
+.ff-segoe (@font-weight:400; @font-style: normal;){
+    font-family: "Segoe", @ff-s-serifArial;
     font-weight: @font-weight;
     font-style: @font-style;
 }
-
 
 .ff-raleway (@font-weight:400; @font-style: normal;){
     font-family: "Raleway", @ff-s-serifArial;
@@ -97,13 +103,24 @@ body textarea:required:valid {
     font-style: @font-style;
 }
 ===========================*/
-.ff-segoe (@font-weight:400; @font-style: normal;){
-    font-family: "Segoe", @ff-s-serifArial;
+
+.ff-roboto (@font-weight:400; @font-style: normal;){
+    font-family: 'Roboto', @ff-s-serifArial;
     font-weight: @font-weight;
     font-style: @font-style;
 }
 
-@main_font: .ff-segoe();
+.ff-pt-serif (@font-weight:400; @font-style: normal;){
+    font-family: 'PTSerif', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+.ff-icomoon (@font-weight:400; @font-style: normal;){
+    font-family: 'icomoon' !important;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
 
 /*5. Typography
 ===========================*/
@@ -138,7 +155,6 @@ body {
     .display-container();
     display: flex;
     flex-direction: column;
-    .ff-segoe();
 }
 
 header,
@@ -219,39 +235,6 @@ fieldset {
 background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7);
 }
 
-.section__header {
-    .padding-Y(30);
-    .left-align();
-}
-
-.section__title {
-    .ff-segoe(300);
-    .h2-rem-ttu(30);
-    color: #515f67;
-    .display-container();
-
-    &::after {
-        content: "";
-        display: block;
-        .width(45);
-        height: 2px;
-        .bgc(#515f67);
-        .display-bottomleft();
-    }
-    &-dark {
-        &:extend(.section__title);
-        .c(@white);
-
-        &::after {
-            content: "";
-            display: block;
-            .width(45);
-            height: 2px;
-            .bgc(@white);
-            .display-bottomleft();
-        }
-    }
-}
 
 
 .js_left, .js_right, .js_up {
