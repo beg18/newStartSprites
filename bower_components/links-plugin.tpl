@@ -15,6 +15,8 @@ FancyBox - фотогалерея + модальные окна:
 https://ruseller.com/lessons.php?id=238
 ==================================================================
 Создаем всплывающие окна для сайта — Magnific Popup:
+https://webgrind.ru/nastroyka-vsplyvayushhikh-okon-magnific-popup-s-prime/
+https://webformyself.com/top-plaginov-jquery-plagin-magnific-popup/
 https://zaurmag.ru/javascript-jquery/vsplyvayushhie-okna-dlya-sajta.html
 ==================================================================
 Bootstrap валидация форм:
