@@ -1,94 +1,31 @@
-
 /*
-http://chimir.ru/post/39:
-@font-face mixin.Пример использования:
-@family: имя шрифта (обязательно).
-@filename: название шрифта, так же используется в качестве id для шрифта в формате svg
-(обязательно, по умолчанию используется имя шрифта).
-@weight: жирность шрифта (не обязательно, по умолчанию normal).
-@style: стиль шрифта (не обязательно, по умолчанию normal).
-
-.font-face(Roboto Slab, RobotoSlab-Bold, bold);
- .font-face(@family, @filename: @family, @weight: normal, @style: normal){
-    @font-face{
-        font-family: @family;
-        src:url('fonts/@{filename}/@{filename}.eot');
-        src:url('fonts/@{filename}/@{filename}.eot?#iefix') format('embedded-opentype'),
-                url('fonts/@{filename}/@{filename}.woff') format('woff'),
-                url('fonts/@{filename}/@{filename}.ttf') format('truetype'),
-                url('fonts/@{filename}/@{filename}.svg#@{filename}') format('svg');
-        font-weight: @weight;
-        font-style: @style;
-    }
-}
-.font-face(Raleway, RalewayLight, 300);
-.font-face(Raleway, RalewayRegular, 400);
-.font-face(Raleway, RalewaySemiBold, 600);
-.font-face(Raleway, RalewayBold, 700);
-
-.font-face(Open Sans, OpenSansLight, 300);
-.font-face(Open Sans, OpenSansRegular, 400);
-.font-face(Open Sans, OpenSansSemiBold, 600);
-.font-face(Open Sans, OpenSansBold, 700);
-
-.font-face(lobstertwo, lobstertwo-regular, 400);
-.font-face(lobstertwo, lobstertwo-italic, 400, italic);
-.font-face(lobstertwo, lobstertwo-bolditalic, 700, italic);
-.font-face(lobstertwo, lobstertwo-bold, 700);
-
-.font-face(Arabic, Arabic, 400);
-.font-face(Exo2Bold, Exo2Bold, 400);
-
-.font(@f-name, @f-style, @f-weight, @f-url) {
-    @font-face {
-        font-family: @f-name;
-        font-style: @f-style;
-        font-weight: @f-weight;
-        src: url(@f-url) format('woff2');
-    }
-
-}
-
-
-.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
-.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
-.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
-
-
-
-//../fonts
+=============================================================================
+шрифт slick подключается при использовании слайдера slick
+для этого мы копируем шрифты из папки slick/fonts в папку src/fonts/slick.eot
+=============================================================================
 */
 
-// font-weight helper:
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
 
-// 100 Extra Light or Ultra Light;
-// 200 Light or Thin; 300 Book or Demi;                                      
-// 400 Regular or Normal;
-// 500 Medium;
-// 600 Semibold or Demibold;
-// 700 Bold;
-// 800 Black or Extra Bold or Heavy;
-// 900 Extra Black or Fat or Ultra Black
-
-
-.add-font(@font-url, @font-name, @weight: normal, @style: normal) {
-  font-family: @font-name;
-  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
-  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
-  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
-  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
-  font-weight: @weight;
-  font-style: @style;
+  src: url('../fonts/slick.eot');
+  src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/slick.woff') format('woff'),
+  url('../fonts/slick.ttf') format('truetype'),
+  url('../fonts/slick.svg#slick') format('svg');
 }
-/*========================
+/*
+==========================================================================
 https://icomoon.io/
 нажимаем на IcoMoon App-> нажимаем на кнопку с книжками add Icon library->
 выбираем нужную библиотеку-> например Font Awesome-> ищем нужные иконки->
 выбираем их-> нажимаем на кнопку Generate Font-> download->
 распакуем архив шрифты из папки font переносим в папку font проекта->
-код из файла style.css вставим в код font.less 
-========================*/
+код из файла style.css вставим в код font.less
+==========================================================================
+*/
 @font-face {
   font-family: 'icomoon';
   src:  url('../fonts/icomoon.eot?fzjwo');
@@ -100,7 +37,7 @@ https://icomoon.io/
   font-style: normal;
   font-display: block;
 }
-
+/* Icons */
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -149,32 +86,62 @@ https://icomoon.io/
 .icon-thumbs-down-solid:before {
   content: "\e902";
 }
-
-
-// Roboto Light
-@font-face {
-  .add-font('RobotoLight/RobotoLight', 'Roboto', 300);
+/*
+=============================================================================
+// font-weight helper:
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin; 300 Book or Demi;
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black
+============================================================================
+*/
+.add-font(@font-url, @font-name, @weight: normal, @style: normal) {
+  font-family: @font-name;
+  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
+  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
+  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
+  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
+  font-weight: @weight;
+  font-style: @style;
 }
 
-// Roboto Regular
+//Museo Cyrl Medium
 @font-face {
-  .add-font('RobotoRegular/RobotoRegular', 'Roboto', 400);
+  .add-font('museocyrl/Museocyrl500', 'Museo Cyrl', 500);
 }
 
-// RRoboto Medium
+//Museo Cyrl  Bold
 @font-face {
-  .add-font('RobotoMedium/RobotoMedium', 'Roboto', 500);
+  .add-font('exljbris - Museo Cyrl 700/exljbris - Museo Cyrl 700', 'Museo Cyrl', 700);
 }
 
-// PTSerif-Regular
+//Museo Sans Cyrl light
 @font-face {
-  .add-font('PTSerif-Regular/PTSerif-Regular', 'PTSerif', 400);
+  .add-font('MuseoSans/MuseoSansCyrl-300', 'Museo Sans Cyrl', 300);
 }
 
-// PTSerif-Bold
+//Museo Sans Cyrll Medium
 @font-face {
-  .add-font('PTSerif-Bold/PTSerif-Bold', 'PTSerif', 700);
+  .add-font('MuseoSans/MuseoSansCyrl-500', 'Museo Sans Cyrl', 500);
 }
+
+//Museo Sans Cyrl Bold
+@font-face {
+  .add-font('MuseoSans/MuseoSansCyrl-700', 'Museo Sans Cyrl', 700);
+}
+
+//Museo Sans Cyrl Extra Black
+@font-face {
+  .add-font('MuseoSans/MuseoSansCyrl-900', 'Museo Sans Cyrl', 900);
+}
+
+
+
 
 
 
