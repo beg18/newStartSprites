@@ -1,22 +1,21 @@
-/*Подключаем переменные
-=========================================*/
+// out: null
+// Подключаем переменные
 @import "_variables";
 
-/*Подключаем спрайты
-=========================================*/
+// Подключаем спрайты
 @import "sprite-position";
 
-/*Подключаем миксины
-=========================================*/
+// Подключаем миксины
 @import "_mixins";
 
 .reset();
 
-/*Подключаем компоненты из bower_components
-=========================================*/
-@import (less)"../../bower_components/animate/animate.min.css";
+/*Bower components import
+===================================*/
+
 
 /* Vendor libs import
+@import "fonts/fonts";
 ==============================*/
 @import "libs/myFrameworks/superLess";
 @import "libs/smart-grid";
@@ -28,6 +27,7 @@
 
 
 /* Pages import
+@import "pages/home";
 ==============================*/
 @import "pages/home";
 
