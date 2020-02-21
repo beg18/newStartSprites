@@ -1,9 +1,28 @@
 // Lazy loading img & background images using intersection observer
 // Reference: https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
-// Using example: <img class="lazy" src="thumb.gif" data-src="real-img.jpg" data-srcset="real-img@1x.jpg 1x, real-img@2x.jpg 2x">
-// Background image class usign example: <div class="lazy-background"> with added class ".visible" for styling
-// Background image style attribute lazy loading example: <div data-bg="image.jpg">
+// Using example:
+//<img class="lazy" src="thumb.gif" data-src="real-img.jpg" data-srcset="real-img@1x.jpg 1x, real-img@2x.jpg 2x">
+//<img class="lazy" src="placeholder-image.jpg" data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!">
 
+// Background image class usign example:
+//<div class="lazy-background"> with added class ".visible" for styling
+// Background image style attribute lazy loading example: <div data-bg="image.jpg">
+/*
+===========================================================================
+<div class="lazy-background">
+  <h1>Here's a hero heading to get your attention!</h1>
+  <p>Here's hero copy to convince you to buy a thing!</p>
+  <a href="/buy-a-thing">Buy a thing!</a>
+</div>
+.lazy-background {
+  background-image: url("hero-placeholder.jpg"); //Placeholder image
+}
+
+.lazy-background.visible {
+  background-image: url("hero.jpg"); //The final image
+}
+
+*/
 // delete window.IntersectionObserver; // Fallback Testing
 
 document.addEventListener('DOMContentLoaded', function() {

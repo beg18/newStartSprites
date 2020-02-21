@@ -1,3 +1,8 @@
+<!---------------------------------------------------------------
+https://www.tutorialrepublic.com/
+https://bootstraptema.ru/stuff/snippets_bootstrap/3
+https://bootstrapious.com/snippets
+---------------------------------------------------------------->
 Starter Text
 =============
 <aside class="schedule">

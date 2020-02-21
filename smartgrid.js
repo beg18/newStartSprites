@@ -1,6 +1,6 @@
 const smartgrid = require('smart-grid');
 
-smartgrid('src/css/libs', {
+smartgrid('catalog/view/theme/apple/libs', {
     mobileFirst: false,
     filename: "smart-grid",
     columns: 12,
@@ -33,7 +33,7 @@ smartgrid('src/css/libs', {
     },
 });
 
-smartgrid('src/css/libs', settings);
+smartgrid('catalog/view/theme/apple/libs', settings);
 
 
 
