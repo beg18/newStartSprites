@@ -67,9 +67,12 @@ var path = {
 gulp.task('browserSync',['css:assets','skins:assets' ,'js:assets'], function () {
     browserSync.init({
         server: {
-           proxy: "opencart.loc",
-           notify: false
+            baseDir: path.assets
         },
+        // notify: false,
+        // online: false, // Work offline without internet connection
+        // tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
+        //tunnel: true
     });
 });
 

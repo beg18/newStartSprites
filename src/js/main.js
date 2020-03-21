@@ -4,6 +4,8 @@ Libs
 =======================================================================================
 */
 //= ../../bower_components/modernizr/modernizr.js
+//= ../../bower_components/bootSnippets/js/jquery-3.3.1.slim.min.js
+
 
 
 /*

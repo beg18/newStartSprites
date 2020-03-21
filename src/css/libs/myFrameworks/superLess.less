@@ -31,14 +31,20 @@
 }
 
 .rem-size(@sizeValue) {
-    @remValue: (@sizeValue/@fontBasePx);
-    font-size: ~"@{remValue}rem";
+    @remValue:@sizeValue/@fontBasePx;
+    @Value:round(@remValue, 2);
+    @pxValue: @sizeValue;
+    font-size: ~"@{pxValue}px";
+    font-size: ~"@{Value}rem";
 }
 
 //rem calculator
 .rem-size-mb(@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
-    font-size: ~"@{remValue}rem";
+    @Value: round(@remValue ,2);
+    @pxValue: @sizeValue;
+    font-size: ~"@{pxValue}px";
+    font-size: ~"@{Value}rem";
     @marginBottom:(@fontBasePx*0.69);
     margin-bottom:~"@{marginBottom}px";
     margin-bottom:0.69rem;
@@ -50,9 +56,10 @@
 
  .h1-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -62,9 +69,10 @@
 
 .h1-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -75,9 +83,10 @@
 
 .h2-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -87,9 +96,10 @@
 
 .h2-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -100,10 +110,10 @@
 
 .h3-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -113,9 +123,10 @@
 
 .h3-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -127,9 +138,10 @@
 
 .h4-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -139,9 +151,10 @@
 
 .h4-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -153,9 +166,10 @@
 
 .h5-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -165,9 +179,10 @@
 
 .h5-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -179,9 +194,10 @@
 
 .h6-rem (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -191,9 +207,10 @@
 
 .h6-rem-ttu (@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @sizeValue;
     font-size: ~"@{pxValue}px";
-    font-size: ~"@{remValue}rem";
+    font-size: ~"@{Value}rem";
     line-height: 130%;
     margin: 0;
     @marginBottom:(@fontBasePx*0.69);
@@ -206,9 +223,11 @@
 
 .line-height-rem(@string) {
     @remValue: (@string/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @value: @string;
     line-height: ~"@{value}px";
-    line-height: ~"@{remValue}rem";
+    line-height: ~"@{Value}rem";
 }
 
 .text-bold() {
@@ -220,9 +239,12 @@
 
 .wide(@font-size: 14, @ls: 80) {
     @remValue: ((@font-size*@ls)/@fontBasePx)/1000;
+    @Value: round(@remValue,2);
+
     @value:    (@font-size*@ls)/1000;
+    @val:    round(@value,2);
     letter-spacing: ~"@{value}px";
-    letter-spacing: ~"@{remValue}rem";
+    letter-spacing: ~"@{Value}rem";
 }
 
 
@@ -362,7 +384,11 @@ i.material-icons {
 
 .code(@mt:16, @mb:16) {
     @marTopRem:(@mt/@fontBasePx);
+    @mTR:round(@marTopRem,2);
+
     @marBotRem:(@mb/@fontBasePx);
+    @mBR:round(@marBotRem,2);
+
     @marTopPx:@mt;
     @marBotPx:@mb;
 
@@ -450,35 +476,47 @@ i.material-icons {
 
 .min-max(@min-width, @max-width, @padding) {
  @remValue: (@padding/@fontBasePx);
+ @Value: round(@remValue,2);
+
  @pxValue: @padding;
  @pxMaxWidth: @max-width;
  @pxMinWidth: @min-width;
+
  @remValueMin: (@min-width/@fontBasePx);
+ @ValueMin: round(@remValueMin,2);
+
  @remValueMax: (@max-width/@fontBasePx);
+ @ValueMax: round(@remValueMax,2);
+
 
   min-width: ~"@{pxMinWidth}px";
-  min-width: ~"@{remValueMin}rem";
+  min-width: ~"@{ValueMin}rem";
   max-width: ~"@{pxMaxWidth}px";
-  max-width: ~"@{remValueMax}rem";
+  max-width: ~"@{ValueMax}rem";
   padding: 0 ~"@{pxValue}px";
-  padding: 0 ~"@{remValue}rem";
+  padding: 0 ~"@{Value}rem";
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 .min-max-per(@min-width, @max-width, @padding) {
  @remValue: (@padding/@fontBasePx);
+ @Value: round(@remValue,2);
+
  @pxValue: @padding;
  @perMaxWidth: @max-width;
  @pxMinWidth: @min-width;
+
  @remValueMin: (@min-width/@fontBasePx);
+ @ValueMin: round(@remValueMin,2);
+
 
   min-width: ~"@{pxMinWidth}px";
-  min-width: ~"@{remValueMin}rem";
+  min-width: ~"@{ValueMin}rem";
   max-width: ~"@{perMaxWidth}%";
 
   padding: 0 ~"@{pxValue}px";
-  padding: 0 ~"@{remValue}rem";
+  padding: 0 ~"@{Value}rem";
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -489,9 +527,10 @@ i.material-icons {
 
 .height(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @px;
     height: ~"@{pxValue}px";
-    height: ~"@{remValue}rem";
+    height: ~"@{Value}rem";
 }
 
 .height-per(@px){
@@ -503,9 +542,10 @@ i.material-icons {
 
 .max-height(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @px;
     max-height: ~"@{pxValue}px";
-    max-height: ~"@{remValue}rem";
+    max-height: ~"@{Value}rem";
 }
 
 .max-height-per(@px){
@@ -515,9 +555,10 @@ i.material-icons {
 
 .min-height(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @px;
     min-height: ~"@{pxValue}px";
-    min-height: ~"@{remValue}rem";
+    min-height: ~"@{Value}rem";
 }
 
 .min-height-per(@px){
@@ -527,9 +568,10 @@ i.material-icons {
 
 .min-width(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue, 2);
     @pxValue: @px;
     min-width: ~"@{pxValue}px";
-    min-width: ~"@{remValue}rem";
+    min-width: ~"@{Value}rem";
 }
 
 .min-width-per(@px){
@@ -539,14 +581,17 @@ i.material-icons {
 
 .width(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @px;
     width: ~"@{pxValue}px";
-    width: ~"@{remValue}rem";
+    width: ~"@{Value}rem";
 }
 
 .width-calc-per(@px, @base){
     @perValue: (@px/@base)*100;
-    @per:ceil(@perValue);
+    @per:round(@perValue,2);
+
     width: ~"@{per}%";
 }
 
@@ -557,9 +602,11 @@ i.material-icons {
 
 .max-width(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @px;
     max-width: ~"@{pxValue}px";
-    max-width: ~"@{remValue}rem";
+    max-width: ~"@{Value}rem";
 }
 .max-width-per(@px){
     @perValue: @px;
@@ -568,7 +615,9 @@ i.material-icons {
 
 .max-width-calc-per(@px, @break){
     @perValue: (@px/@break)*100;
-    max-width: ~"@{perValue}%";
+    @Value: round(@perValue,2);
+
+    max-width: ~"@{Value}%";
 }
 
 .dib-mid(){
@@ -585,11 +634,13 @@ i.material-icons {
 
 .square(@s:50, @bgc:#ccc) {
     @remValue: (@s/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @s;
     width: ~"@{pxValue}px";
-    width: ~"@{remValue}rem";
+    width: ~"@{Value}rem";
     height: ~"@{pxValue}px";
-    height: ~"@{remValue}rem";
+    height: ~"@{Value}rem";
     background-color: @bgc;
     box-sizing: border-box;
 }
@@ -598,99 +649,127 @@ i.material-icons {
 
 .triangle-up(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
+
     @widthDev: (@pxValue/2);
+    @Dev: round(@widthDev,2);
+
     /*.square(0); */
-    border-left:   ~"@{widthDev}px" solid transparent;
-    border-left:   ~"@{remValue}rem" solid transparent;
-    border-right:  ~"@{widthDev}px" solid transparent;
-    border-right:  ~"@{remValue}rem" solid transparent;
+    border-left:   ~"@{Dev}px" solid transparent;
+    border-left:   ~"@{Value}rem" solid transparent;
+    border-right:  ~"@{Dev}px" solid transparent;
+    border-right:  ~"@{Value}rem" solid transparent;
     border-bottom: ~"@{pxValue}px" solid @color;
-    border-bottom: ~"@{remValue}rem" solid @color;
+    border-bottom: ~"@{Value}rem" solid @color;
 }
 
 .triangle-down(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     @widthDev: (@pxValue/2);
+    @Dev: round(@widthDev,2);
+
 
     /*.square(0);*/
-    border-left: ~"@{widthDev}px" solid transparent;
-    border-left: ~"@{remValue}rem" solid transparent;
-    border-right:~"@{widthDev}px" solid transparent;
-    border-right:~"@{remValue}rem" solid transparent;
+    border-left: ~"@{Dev}px" solid transparent;
+    border-left: ~"@{Value}rem" solid transparent;
+    border-right:~"@{Dev}px" solid transparent;
+    border-right:~"@{Value}rem" solid transparent;
     border-top:  ~"@{pxValue}px" solid @color;
-    border-top:  ~"@{remValue}rem" solid @color;
+    border-top:  ~"@{Value}rem" solid @color;
 }
 
 .triangle-left(@width, @color: @color) {
-    @remValue: (@width/@fontBasePx);
+     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     @widthDev: (@pxValue/2);
+    @Dev: round(@widthDev,2);
+
 
     /*.square(0);*/
-  border-top:       ~"@{widthDev}px" solid transparent;
-  border-top:       ~"@{remValue}rem" solid transparent;
+  border-top:       ~"@{Dev}px" solid transparent;
+  border-top:       ~"@{Value}rem" solid transparent;
   border-right:     ~"@{pxValue}px" solid @color;
-  border-right:     ~"@{remValue}rem" solid @color;
-  border-bottom:    ~"@{widthDev}px" solid transparent;
-  border-bottom:    ~"@{remValue}rem" solid transparent;
+  border-right:     ~"@{Value}rem" solid @color;
+  border-bottom:    ~"@{Dev}px" solid transparent;
+  border-bottom:    ~"@{Value}rem" solid transparent;
 }
 
 .triangle-right(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     @widthDev: (@pxValue/2);
+    @Dev: round(@widthDev,2);
+
 
     /*.square(0);*/
-  border-top:       ~"@{widthDev}px" solid transparent;
-  border-top:       ~"@{remValue}rem" solid transparent;
+  border-top:       ~"@{Dev}px" solid transparent;
+  border-top:       ~"@{Value}rem" solid transparent;
   border-left:      ~"@{pxValue}px" solid @color;
-  border-left:      ~"@{remValue}rem" solid @color;
-  border-bottom:    ~"@{widthDev}px" solid transparent;
-  border-bottom:    ~"@{remValue}rem" solid transparent;
+  border-left:      ~"@{Value}rem" solid @color;
+  border-bottom:    ~"@{Dev}px" solid transparent;
+  border-bottom:    ~"@{Value}rem" solid transparent;
 }
 
 .triangle-top-left(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     @widthDev: (@pxValue/2);
+    @Dev: round(@widthDev,2);
+
     @widthRem: (@widthDev/@fontBasePx);
+    @Rem: round(@widthRem,2);
+
     /*.square(0); */
   border-top:   ~"@{pxValue}px" solid @color;
-  border-top:   ~"@{remValue}rem" solid @color;
+  border-top:   ~"@{Value}rem" solid @color;
   border-right: ~"@{pxValue}px" solid transparent;
-  border-right: ~"@{remValue}rem" solid transparent;
+  border-right: ~"@{Value}rem" solid transparent;
 }
 
 .triangle-top-right(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     /*.square(0);*/
   border-top:  ~"@{pxValue}px" solid @color;
-  border-top:  ~"@{remValue}rem" solid @color;
+  border-top:  ~"@{Value}rem" solid @color;
   border-left: ~"@{pxValue}px" solid transparent;
-  border-left: ~"@{remValue}rem" solid transparent;
+  border-left: ~"@{Value}rem" solid transparent;
 }
 
 .triangle-bottom-left(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
     @pxValue: @width;
     /*.square(0);*/
   border-bottom: ~"@{pxValue}px" solid @color;
-  border-bottom: ~"@{remValue}rem" solid @color;
+  border-bottom: ~"@{Value}rem" solid @color;
   border-right: ~"@{pxValue}px" solid transparent;
-  border-right: ~"@{remValue}rem" solid transparent;
+  border-right: ~"@{Value}rem" solid transparent;
 }
 
 .triangle-bottom-right(@width, @color: @color) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     /*.square(0);*/
   border-bottom: ~"@{pxValue}px" solid @color;
-  border-bottom: ~"@{remValue}rem" solid @color;
+  border-bottom: ~"@{Value}rem" solid @color;
   border-left: ~"@{pxValue}px" solid transparent;
-  border-left: ~"@{remValue}rem" solid transparent;
+  border-left: ~"@{Value}rem" solid transparent;
 }
 
 .romb(@border-left: 180; @border-bottom:100){
@@ -721,13 +800,15 @@ i.material-icons {
 
 .circle-img-wrap(@s:50){
     @remValue: (@s/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @s;
     display: block;
     vertical-align: middle;
     width: ~"@{pxValue}px";
-    width: ~"@{remValue}rem";
+    width: ~"@{Value}rem";
     height: ~"@{pxValue}px";
-    height: ~"@{remValue}rem";
+    height: ~"@{Value}rem";
     border-radius: 50% 50%;
     overflow: hidden;
     box-sizing: border-box;
@@ -837,7 +918,11 @@ i.material-icons {
 
 .button (@line-height:30; @padding: 16; @background-color: black; @color: white; @content) {
   @remline: (@line-height/@fontBasePx);
+  @line: round(@remline,2);
+
   @remPad: (@padding/@fontBasePx);
+  @Pad: round(@remPad,2);
+
   @bgc: @background-color;
   @c:  @color;
   border: none;
@@ -848,11 +933,11 @@ i.material-icons {
   vertical-align: middle;
   white-space: nowrap;
   height: ~"@{line-height}px";
-  height: ~"@{remline}rem";
+  height: ~"@{line}rem";
   line-height: ~"@{line-height}px";
-  line-height: ~"@{remline}rem";
+  line-height: ~"@{line}rem";
   padding: 0 ~"@{padding}px";
-  padding: 0 ~"@{remPad}rem";
+  padding: 0 ~"@{Pad}rem";
   box-sizing: border-box;
   color: @c;
   background-color: @bgc;
@@ -875,11 +960,17 @@ i.material-icons {
 
 .button-width(@width: 200 ; @line-height:30; @padding: 16; @background-color: black; @color: white; @content) {
   @remline: (@line-height/@fontBasePx);
+  @line: round(@remline,2);
+
   @remPad: (@padding/@fontBasePx);
+  @Pad: round(@remPad,2);
+
   @bgc: @background-color;
   @c:  @color;
   @pxWidth: @width;
   @remWidth: (@width/@fontBasePx);
+  @Width: round(@remWidth,2);
+
   border: none;
   text-decoration: none;
   overflow: hidden;
@@ -888,13 +979,13 @@ i.material-icons {
   vertical-align: middle;
   white-space: nowrap;
   width: ~"@{pxWidth}px";
-  max-width: ~"@{remWidth}rem";
+  max-width: ~"@{Width}rem";
   height: ~"@{line-height}px";
-  height: ~"@{remline}rem";
+  height: ~"@{line}rem";
   line-height: ~"@{line-height}px";
-  line-height: ~"@{remline}rem";
+  line-height: ~"@{line}rem";
   padding: 0 ~"@{padding}px";
-  padding: 0 ~"@{remPad}rem";
+  padding: 0 ~"@{Pad}rem";
   box-sizing: border-box;
   color: @c;
   background-color: @bgc;
@@ -915,6 +1006,8 @@ i.material-icons {
 }
 .btn (@line-height:30; @padding: 16; @background-color: black; @color: white; @content) {
       @remline: (@line-height/@fontBasePx);
+      @line: round(@remline,2);
+
       @bgc: @background-color;
       @c:  @color;
   &:extend(.button);
@@ -967,15 +1060,109 @@ i.material-icons {
      cursor: pointer;
 }
 
+.col-flex(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val, 3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  max-width: ~"calc(@{n_val} - @{offset})";
+}
+
+.col-flex-lg(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val, 3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  .lg-block({
+        -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
+        flex: 0 0 ~"calc(@{n_val} - @{offset})";
+        max-width: ~"calc(@{n_val} - @{offset})";
+  });
+}
+
+.col-flex-md(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  .md-block({
+      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  max-width: ~"calc(@{n_val} - @{offset})";
+  });
+}
+
+.col-flex-sm(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+ .sm-block({
+      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  max-width: ~"calc(@{n_val} - @{offset})";
+  });
+}
+
+.col-flex-xs(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  .xs-block({
+      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  flex: 0 0 ~"calc(@{n_val} - @{offset})";
+  max-width: ~"calc(@{n_val} - @{offset})";
+  });
+}
+
+.col-flex-xxs(@n) {
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  .xxs-block({
+      -ms-flex: 0 0 ~"calc(@{val} - @{offset})";
+      flex: 0 0 ~"calc(@{val} - @{offset})";
+      max-width: ~"calc(@{val} - @{offset})";
+  });
+}
+
 .col-grow() {
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+ -ms-flex-preferred-size: 0;
   flex-basis: 0;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   max-width: 100%;
 }
 
+
+
 .col-grow-lg(){
   .lg-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+     -ms-flex-preferred-size: 0;
       flex-basis: 0;
+      -ms-flex-positive: 1;
       flex-grow: 1;
       max-width: 100%;
   });
@@ -983,7 +1170,12 @@ i.material-icons {
 
 .col-grow-md(){
   .md-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+     -ms-flex-preferred-size: 0;
       flex-basis: 0;
+      -ms-flex-positive: 1;
       flex-grow: 1;
       max-width: 100%;
   });
@@ -991,25 +1183,40 @@ i.material-icons {
 
 .col-grow-sm(){
   .sm-block({
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+     -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
   });
 }
 
 .col-grow-xs(){
   .xs-block({
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
+     position: relative;
+      width: 100%;
+      .col-offsets(padding);
+     -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
   });
 }
 
 .col-grow-xxs(){
   .xxs-block({
- flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+     -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
   });
 }
 
@@ -1091,42 +1298,54 @@ i.material-icons {
 }
 
 .size-grow(@n){
-  @val: 100% / @columns * @n;
-  flex:0 0 ~"calc(@{val} - @{offset})";
-  max-width: ~"calc(@{val} - @{offset})";
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  flex:0 0 ~"calc(@{n_val} - @{offset})";
+  max-width: ~"calc(@{n_val} - @{offset})";
 }
 
 .size-grow-lg(@n){
-  @val: 100% / @columns * @n;
-  .lg(flex,0 0 ~"calc(@{val} - @{offset_md})");
-  .lg(max-width, ~"calc(@{val} - @{offset_md})");
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  .lg(flex,0 0 ~"calc(@{n_val} - @{offset_md})");
+  .lg(max-width, ~"calc(@{n_val} - @{offset_md})");
 
 }
 .size-grow-md(@n){
-  @val: 100% / @columns * @n;
-  .md(flex,0 0 ~"calc(@{val} - @{offset_md})");
-  .md(max-width, ~"calc(@{val} - @{offset_md})");
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  .md(flex,0 0 ~"calc(@{n_val} - @{offset_md})");
+  .md(max-width, ~"calc(@{n_val} - @{offset_md})");
 
 }
 
 .size-grow-sm(@n){
-  @val: 100% / @columns * @n;
-  .sm(flex,0 0 ~"calc(@{val} - @{offset_sm})");
-  .sm(max-width, ~"calc(@{val} - @{offset_sm})");
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  .sm(flex,0 0 ~"calc(@{n_val} - @{offset_sm})");
+  .sm(max-width, ~"calc(@{n_val} - @{offset_sm})");
 
 }
 
 .size-grow-xs(@n){
-  @val: 100% / @columns * @n;
-  .xs(flex,0 0 ~"calc(@{val} - @{offset_xs})");
-  .xs(max-width, ~"calc(@{val} - @{offset_xs})");
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  .xs(flex,0 0 ~"calc(@{n_val} - @{offset_xs})");
+  .xs(max-width, ~"calc(@{n_val} - @{offset_xs})");
 
 }
 
 .size-grow-xxs(@n){
-  @val: 100% / @columns * @n;
-  .xxs(flex,0 0 ~"calc(@{val} - @{offset_xxs})");
-  .xxs(max-width, ~"calc(@{val} - @{offset_xxs})");
+  @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+  .xxs(flex,0 0 ~"calc(@{n_val} - @{offset_xxs})");
+  .xxs(max-width, ~"calc(@{n_val} - @{offset_xxs})");
 }
 
 .order(){}
@@ -2020,34 +2239,46 @@ i.material-icons {
 
 
 .input(@n) {
-    @val: 100% / @columns * @n;
-    width: ~"calc(@{val} - @{offset})";
+    @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    width: ~"calc(@{n_val} - @{offset})";
 }
 .input-xxs(@n) {
-     @val: 100% / @columns * @n;
-    .xxs(width, ~"calc(@{val} - @{offset_xxs})");
+     @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    .xxs(width, ~"calc(@{n_val} - @{offset_xxs})");
 
 }
 
 .input-xs(@n) {
-     @val: 100% / @columns * @n;
-    .xs(width, ~"calc(@{val} - @{offset_xxs})");
+     @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    .xs(width, ~"calc(@{n_val} - @{offset_xxs})");
 }
 
 .input-sm(@n) {
-     @val: 100% / @columns * @n;
-    .sm(width, ~"calc(@{val} - @{offset_xxs})");
+     @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    .sm(width, ~"calc(@{n_val} - @{offset_xxs})");
 }
 
 
 .input-xxs(@n) {
-     @val: 100% / @columns * @n;
-    .md(width, ~"calc(@{val} - @{offset_xxs})");
+     @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    .md(width, ~"calc(@{n_val} - @{offset_xxs})");
 }
 
 .input-xxs(@n) {
-     @val: 100% / @columns * @n;
-    .lg(width, ~"calc(@{val} - @{offset_xxs})");
+     @val: (100% / @columns * @n);
+  @n_val: round(@val,3);
+
+    .lg(width, ~"calc(@{n_val} - @{offset_xxs})");
 }
 
 
@@ -2108,9 +2339,11 @@ i.material-icons {
 
 .border(@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border: ~"@{pxValue}px" solid @bgc;
-  border: ~"@{remValue}rem" solid @bgc;
+  border: ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2120,9 +2353,11 @@ i.material-icons {
 
 .border-top (@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-top: ~"@{pxValue}px" solid @bgc;
-  border-top: ~"@{remValue}rem" solid @bgc;
+  border-top: ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2132,9 +2367,11 @@ i.material-icons {
 
 .border-bottom (@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-bottom: ~"@{pxValue}px" solid @bgc;
-  border-bottom: ~"@{remValue}rem" solid @bgc;
+  border-bottom: ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2144,9 +2381,11 @@ i.material-icons {
 
 .border-left (@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-left: ~"@{pxValue}px" solid @bgc;
-  border-left: ~"@{remValue}rem" solid @bgc;
+  border-left: ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2156,9 +2395,11 @@ i.material-icons {
 
 .border-right (@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-right:  ~"@{pxValue}px" solid @bgc;
-  border-right:  ~"@{remValue}rem" solid @bgc;
+  border-right:  ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2168,17 +2409,21 @@ i.material-icons {
 
 .topbar (@value: 1, @bgc: #ccc ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-top: ~"@{pxValue}px" solid @bgc;
-  border-top: ~"@{remValue}rem" solid @bgc;
+  border-top: ~"@{Value}rem" solid @bgc;
 }
 
 
 .topbar-none (@value: 1, @bgc: transparent ) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-top: ~"@{pxValue}px" solid @bgc;
-  border-top: ~"@{remValue}rem" solid @bgc;
+  border-top: ~"@{Value}rem" solid @bgc;
 }
 
 .bottombar() {
@@ -2188,11 +2433,13 @@ i.material-icons {
 
 .bottombar (@value: 6,@width: 30, @bgc: #ccc) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
     @perValue: @width;
   width: ~"@{perValue}%";
   border-bottom: ~"@{pxValue}px" solid @bgc;
-  border-bottom: ~"@{remValue}rem" solid @bgc;
+  border-bottom: ~"@{Value}rem" solid @bgc;
 }
 
 .bottombar-width-per (@width: 30, @height: 1, @bgc: #ccc) {
@@ -2204,11 +2451,13 @@ i.material-icons {
 }
 
 .bottombar-width (@width: 6, @height: 30, @bgc: #ccc) {
-    @remValue: (@width/@fontBasePx);
+    @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     @pxValue: @height;
     width:  ~"@{pxValue}px";
-    width:  ~"@{remValue}rem";
+    width:  ~"@{Value}rem";
     height: ~"@{pxValue}px";;
     background-color: @bgc;                                                   
 }
@@ -2221,11 +2470,13 @@ i.material-icons {
 
 .bottombar-dib-mid (@value: 6, @bgc:#ccc) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
     display: inline-block;
     vertical-align: middle;
     border-bottom: ~"@{pxValue}px" solid @bgc;
-    border-bottom: ~"@{remValue}rem" solid @bgc;
+    border-bottom: ~"@{Value}rem" solid @bgc;
 }
 
 .bottombar-none() {
@@ -2234,9 +2485,11 @@ i.material-icons {
 
 .bottombar-none (@value: 6, @bgc:transparent) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-bottom: ~"@{pxValue}px" solid @bgc;
-  border-bottom: ~"@{remValue}rem" solid @bgc;
+  border-bottom: ~"@{Value}rem" solid @bgc;
 }
 
 .leftbar() {
@@ -2245,16 +2498,20 @@ i.material-icons {
 
 .leftbar (@value: 6, @bgc:#ccc) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-left: ~"@{pxValue}px" solid @bgc;
-  border-left: ~"@{remValue}rem" solid @bgc;
+  border-left: ~"@{Value}rem" solid @bgc;
 }
 
 .leftbar-none (@value: 6, @bgc:transparent) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-left: ~"@{pxValue}px" solid @bgc;
-  border-left: ~"@{remValue}rem" solid @bgc;
+  border-left: ~"@{Value}rem" solid @bgc;
 }
 
 .rightbar() {
@@ -2263,9 +2520,11 @@ i.material-icons {
 
 .rightbar (@value: 6, @bgc:#ccc) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-right: ~"@{pxValue}px" solid @bgc;
-  border-right: ~"@{remValue}rem" solid @bgc;
+  border-right: ~"@{Value}rem" solid @bgc;
 }
 
 
@@ -2275,9 +2534,11 @@ i.material-icons {
 
 .rightbar-none (@value: 6, @bgc:transparent) {
     @remValue: (@value/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @value;
   border-right: ~"@{pxValue}px" solid @bgc;
-  border-right: ~"@{remValue}rem" solid @bgc;
+  border-right: ~"@{Value}rem" solid @bgc;
 }
 
 .border-color(){
@@ -2301,9 +2562,11 @@ i.material-icons {
 }
 .max-width(@px){
     @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @px;
     max-width: ~"@{pxValue}px";
-    max-width: ~"@{remValue}rem";
+    max-width: ~"@{Value}rem";
 }
 .max-width-per(@px){
     @perValue: @px;
@@ -2629,49 +2892,59 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .margin-Y(@margin) {
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
 .margin-Y-lg( @margin) {
     @media screen and (max-width: @break_lg) {
         @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
         @pxValue: @margin;
         margin-top: ~"@{pxValue}px";
-        margin-top: ~"@{remValue}rem";
+        margin-top: ~"@{Value}rem";
         margin-bottom: ~"@{pxValue}px";
-        margin-bottom: ~"@{remValue}rem";
+        margin-bottom: ~"@{Value}rem";
     }
 }
 
 .margin-Y-md(@margin) {
     @media screen and (max-width: @break_md) {
         @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
         @pxValue: @margin;
         margin-top: ~"@{pxValue}px";
-        margin-top: ~"@{remValue}rem";
+        margin-top: ~"@{Value}rem";
         margin-bottom: ~"@{pxValue}px";
-        margin-bottom: ~"@{remValue}rem";
+        margin-bottom: ~"@{Value}rem";
     }
 }
 
 .margin-Y-sm(@margin) {
     @media screen and (max-width: @break_sm){
         @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
         @pxValue: @margin;
         margin-top: ~"@{pxValue}px";
-        margin-top: ~"@{remValue}rem";
+        margin-top: ~"@{Value}rem";
         margin-bottom: ~"@{pxValue}px";
-        margin-bottom: ~"@{remValue}rem";
+        margin-bottom: ~"@{Value}rem";
     }
 }
 
 .margin-Y-xs(@margin) {
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
     margin-top: ~"@{remValue}rem";
@@ -2683,33 +2956,41 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 .margin-Y-xxs(@margin) {
 @media screen and (max-width: @break_xxs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
     }
 }
 
 .margin-top(@margin) {
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
 }
 
 .margin-top-lg(@margin) {
 @media screen and (max-width: @break_lg){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
 }
 }
 
 .margin-top-md(@margin) {
 @media screen and (max-width: @break_md){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+    @remValue: @Value;
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
     margin-top: ~"@{remValue}rem";
@@ -2719,209 +3000,255 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 .margin-top-sm(@margin) {
 @media screen and (max-width: @break_sm){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
 }
 }
 
 .margin-top-xs(@margin) {
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
 }
 }
 
 .margin-top-xxs(@margin) {
 @media screen and (max-width: @break_xxs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-top: ~"@{pxValue}px";
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
 }
 }
 
 .margin-bottom(@margin) {
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
 .margin-bottom-md(@margin) {
 @media screen and (max-width: @break_md){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 }
 
 .margin-bottom-sm(@margin) {
 @media screen and (max-width: @break_sm){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 }
 
 .margin-bottom-xs(@margin) {
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 }
 
 .margin-bottom-xxs(@margin) {
 @media screen and (max-width: @break_xxs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-bottom: ~"@{pxValue}px";
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 }
 
 .margin-X(@margin){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 
 
 .margin-X-lg(@margin){
 @media screen and (max-width: @break_lg){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-X-md(@margin){
 @media screen and (max-width: @break_md){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-X-sm(@margin){
 @media screen and (max-width: @break_sm){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-X-xs(@margin){
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-X-xxs(@margin){
 @media screen and (max-width: @break_xxs){
-    @remValue: (@margin/@fontBasePx);
+   @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-left( @margin){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
 }
 
 .margin-left-md(@margin){
 @media screen and (max-width: @break_md){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
 }
 }
 
 .margin-left-sm(@margin){
 @media screen and (max-width: @break_sm){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
 }
 }
 
 .margin-left-xs(@margin){
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
 }
 }
 
 .margin-left-xxs(@margin){
 @media screen and (max-width: @break_xxs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-left: ~"@{pxValue}px";
-    margin-left: ~"@{remValue}rem";
+    margin-left: ~"@{Value}rem";
 }
 }
 
 .margin-right(@margin){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 
 .margin-right-md(@margin){
 @media screen and (max-width: @break_md){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-right-sm(@margin){
 @media screen and (max-width: @break_sm){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-right-xs(@margin){
 @media screen and (max-width: @break_xs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+    @remValue: @Value;
     @pxValue: @margin;
     margin-right: ~"@{pxValue}px";
     margin-right: ~"@{remValue}rem";
@@ -2931,30 +3258,38 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 .margin-right-xxs(@margin){
 @media screen and (max-width: @break_xxs){
     @remValue: (@margin/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @margin;
     margin-right: ~"@{pxValue}px";
-    margin-right: ~"@{remValue}rem";
+    margin-right: ~"@{Value}rem";
 }
 }
 
 .margin-16() {
     @remValue: (16/@fontBasePx);
+    @Value: round(@remValue,2);
+
     margin-top: 16px;
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: 16px;
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
 .margin-24() {
     @remValue: (24/@fontBasePx);
+    @Value: round(@remValue,2);
+
     margin-top: 24px;
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: 24px;
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
 .margin-32() {
     @remValue: (32/@fontBasePx);
+    @Value: round(@remValue,2);
+
     margin-top: 32px;
     margin-top: ~"@{remValue}rem";
     margin-bottom: 32px;
@@ -2963,22 +3298,113 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .margin-48() {
     @remValue: (48/@fontBasePx);
+    @Value: round(@remValue,2);
+
     margin-top: 48px;
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: 48px;
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
 .margin-64() {
     @remValue: (64/@fontBasePx);
+    @Value: round(@remValue,2);
+
     margin-top: 64px;
-    margin-top: ~"@{remValue}rem";
+    margin-top: ~"@{Value}rem";
     margin-bottom: 64px;
-    margin-bottom: ~"@{remValue}rem";
+    margin-bottom: ~"@{Value}rem";
 }
 
-.margin(@var: 16) {
-    margin: @var + 0px;
+
+
+.margin (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+    margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+}
+
+.margin-lg (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    .lg-block({
+        margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+        margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+    });
+}
+
+
+.margin-md (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    .md-block({
+        margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+        margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+    });
+}
+
+.margin-sm (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    .sm-block({
+        margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+        margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+    });
+}
+
+.margin-xs (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    .xs-block({
+        margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+        margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+    });
+}
+
+.margin-xxs (@y: 8, @x: 16) {
+    @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
+    @pxValueY: @y;
+    @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
+    @pxValueX: @x;
+    .xxs-block({
+        margin: ~"@{pxValueY}px"  ~"@{pxValueX}px";
+        margin:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
+    });
 }
 
 .margin-top(@var: 16) {
@@ -3007,66 +3433,90 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .padding (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-    padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+    padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
 }
 
 .padding-lg (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     .lg-block({
         padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-        padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+        padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
     });
 }
 
 
 .padding-md (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     .md-block({
         padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-        padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+        padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
     });
 }
 
 .padding-sm (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     .sm-block({
         padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-        padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+        padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
     });
 }
 
 .padding-xs (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     .xs-block({
         padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-        padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+        padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
     });
 }
 
 .padding-xxs (@y: 8, @x: 16) {
     @remValueY: (@y/@fontBasePx);
+    @ValueY: round(@remValueY,2);
+
     @pxValueY: @y;
     @remValueX: (@x/@fontBasePx);
+    @ValueX: round(@remValueX,2);
+
     @pxValueX: @x;
     .xxs-block({
         padding: ~"@{pxValueY}px"  ~"@{pxValueX}px";
-        padding:  ~"@{remValueY}rem"  ~"@{remValueX}rem";
+        padding:  ~"@{ValueY}rem"  ~"@{ValueX}rem";
     });
 }
 
@@ -3091,139 +3541,169 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .padding-Y(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-Y-lg(@padding){
 @media screen and (max-width: @break_lg){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-Y-md(@padding){
 @media screen and (max-width: @break_md){
-    @remValue: (@padding/@fontBasePx);
+   @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-Y-sm(@padding){
 @media screen and (max-width: @break_sm){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-Y-xs(@padding){
 @media screen and (max-width: @break_xs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-Y-xxs(@padding){
 @media screen and (max-width: @break_xxs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-top(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 
 .padding-top-lg(@padding){
 @media screen and (max-width: @break_lg){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 }
 
 .padding-top-md(@padding){
 @media screen and (max-width: @break_md){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 }
 
 .padding-top-sm(@padding){
 @media screen and (max-width: @break_sm){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 }
 
 .padding-top-xs(@padding){
 @media screen and (max-width: @break_xs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 }
 
 .padding-top-xxs(@padding){
 @media screen and (max-width: @break_xxs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-top:  ~"@{pxValue}px";
-    padding-top:  ~"@{remValue}rem";
+    padding-top:  ~"@{Value}rem";
 }
 }
 
 .padding-bottom(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-bottom-lg(@padding){
 @media screen and (max-width: @break_md){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-bottom-md(@padding){
 @media screen and (max-width: @break_md){
-    @remValue: (@padding/@fontBasePx);
+   @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
     padding-bottom: ~"@{remValue}rem";
@@ -3233,237 +3713,289 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 .padding-bottom-sm(@padding){
 @media screen and (max-width: @break_sm){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-bottom-xs(@padding){
 @media screen and (max-width: @break_xs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 .padding-bottom-xxs(@padding){
 @media screen and (max-width: @break_xxs){
-    @remValue: (@padding/@fontBasePx);
+   @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-bottom:  ~"@{pxValue}px";
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 }
 
 
 .padding-X(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 
 .padding-X-lg(@padding){
 @media screen and (max-width: @break_lg){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-X-md(@padding){
 @media screen and (max-width: @break_md){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-X-sm(@padding){
 @media screen and (max-width: @break_sm){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-X-xs(@padding){
 @media screen and (max-width: @break_xs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-X-xxs(@padding){
 @media screen and (max-width: @break_xxs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-left(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 
 .padding-left-lg(@padding){
 @media screen and (max-width: @break_lg){
-    @remValue: (@padding/@fontBasePx);
+   @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 }
 
 .padding-left-md(@padding){
 @media screen and (max-width: @break_md){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 }
 
 .padding-left-sm(@padding){
 @media screen and (max-width: @break_sm){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 }
 
 .padding-left-xs(@padding){
 @media screen and (max-width: @break_xs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 }
 
 .padding-left-xxs(@padding){
 @media screen and (max-width: @break_xxs){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-left: ~"@{pxValue}px";
-    padding-left: ~"@{remValue}rem";
+    padding-left: ~"@{Value}rem";
 }
 }
 
 .padding-right(@padding){
     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 
 .padding-right-lg(@padding){
 @media screen and (max-width: @break_lg){
-    @remValue: (@padding/@fontBasePx);
+     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-right-md(@padding){
 @media screen and (max-width: @break_md){
-    @remValue: (@padding/@fontBasePx);
+     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-right-sm(@padding){
 @media screen and (max-width: @break_sm){
-    @remValue: (@padding/@fontBasePx);
+     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-right-xs(@padding){
 @media screen and (max-width: @break_xs){
-    @remValue: (@padding/@fontBasePx);
+     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-right-xxs(@padding){
 @media screen and (max-width: @break_xxs){
-    @remValue: (@padding/@fontBasePx);
+     @remValue: (@padding/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @padding;
     padding-right: ~"@{pxValue}px";
-    padding-right: ~"@{remValue}rem";
+    padding-right: ~"@{Value}rem";
 }
 }
 
 .padding-16() {
     @remValue: (16/@fontBasePx);
+    @Value: round(@remValue,2);
+
     padding-top: 16px ;
-    padding-top: ~"@{remValue}rem";
+    padding-top: ~"@{Value}rem";
     padding-bottom: 16px ;
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-24() {
     @remValue: (24/@fontBasePx);
+    @Value: round(@remValue,2);
+
     padding-top: 24px ;
-    padding-top: ~"@{remValue}rem";
+    padding-top: ~"@{Value}rem";
     padding-bottom: 24px ;
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-32() {
     @remValue: (32/@fontBasePx);
+    @Value: round(@remValue,2);
+
     padding-top: 32px ;
-    padding-top: ~"@{remValue}rem";
+    padding-top: ~"@{Value}rem";
     padding-bottom: 32px ;
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-48() {
     @remValue: (48/@fontBasePx);
+    @Value: round(@remValue,2);
+
     padding-top: 48px ;
-    padding-top: ~"@{remValue}rem";
+    padding-top: ~"@{Value}rem";
     padding-bottom: 48px ;
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .padding-64() {
     @remValue: (64/@fontBasePx);
+    @Value: round(@remValue,2);
+
     padding-top: 64px ;
-    padding-top: ~"@{remValue}rem";
+    padding-top: ~"@{Value}rem";
     padding-bottom: 64px ;
-    padding-bottom: ~"@{remValue}rem";
+    padding-bottom: ~"@{Value}rem";
 }
 
 .section() {
@@ -3478,41 +4010,48 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .alignleft(@margin: 10){
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
         float:left;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
 }
 
 
 .alignleft-md(@margin: 10){
     .md-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
         float:left;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .alignleft-sm( @margin: 10){
     .sm-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
         float:left;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .alignleft-xs(@margin: 10){
     .xs-block({
         @remValue: (@margin/@fontBasePx);
-        @pxValue: @margin;
+        @Value: round(@remValue,2);
 
+        @pxValue: @margin;
         float:left;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
 
     });
 }
@@ -3520,11 +4059,12 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 .alignleft-xxs(@margin: 10){
     .xxs-block({
         @remValue: (@margin/@fontBasePx);
-        @pxValue: @margin;
+        @Value: round(@remValue,2);
 
+        @pxValue: @margin;
         float:left;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
 
     });
 }
@@ -3536,72 +4076,86 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .alignright(@margin: 10){
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
 
         float: right;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
 }
 
 .alignright-md(@margin: 10){
     .md-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
 
         float: right;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .alignright-sm(@margin: 10){
     .sm-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
 
         float: right;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .alignright-xs(@margin: 10){
     .xs-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
 
-        float:right;
+        float: right;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .alignright-xxs(@margin: 10){
     .xxs-block({
         @remValue: (@margin/@fontBasePx);
+        @Value: round(@remValue,2);
+
         @pxValue: @margin;
 
         float: right;
         margin: ~"@{pxValue}px";
-        margin: ~"@{remValue}rem";
+        margin: ~"@{Value}rem";
     });
 }
 
 .aligncenter(@width: 200) {
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     width: ~"@{pxValue}px";
-    width: ~"@{remValue}rem";
+    width: ~"@{Value}rem";
     display:block;
     margin:0 auto;
 }
 
 .aligncenter-md(@width: 200){
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     .md-block({
         max-width: ~"@{pxValue}px";
-        max-width: ~"@{remValue}rem";
+        max-width: ~"@{Value}rem";
         display: block;
         margin:0 auto;
     });
@@ -3609,10 +4163,12 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .aligncenter-sm(@width: 200){
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     .sm-block({
         max-width: ~"@{pxValue}px";
-        max-width: ~"@{remValue}rem";
+        max-width: ~"@{Value}rem";
         display: block;
         margin:0 auto;
     });
@@ -3620,10 +4176,12 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .aligncenter-xs(@width: 200){
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     .xs-block({
         max-width: ~"@{pxValue}px";
-        max-width: ~"@{remValue}rem";
+        max-width: ~"@{Value}rem";
         display: block;
         margin:0 auto;
     });
@@ -3631,10 +4189,12 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .aligncenter-xxs( @width: 200){
     @remValue: (@width/@fontBasePx);
+    @Value: round(@remValue,2);
+
     @pxValue: @width;
     .xxs-block({
         max-width: ~"@{pxValue}px";
-        max-width: ~"@{remValue}rem";
+        max-width: ~"@{Value}rem";
         display: block;
         margin:0 auto;
     });
@@ -3743,7 +4303,7 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 
 .hide300-down(none){
 @media (max-width: @break_s){
-    opacity: 0;
+    display: none;
 }
 }
 .hide-only-none() {}
@@ -3767,7 +4327,7 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 /*=======================================*/
 .hide300-down(slide){
 @media (max-width: @break_s){
-    height: 0;
+    display: none;
 }
 }
 
@@ -3819,7 +4379,7 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 /*=======================================*/
 .hide380-down(none){
 @media (max-width: @break_xxs){
-    opacity: 0;
+    display: none;
 }
 }
 
@@ -3856,7 +4416,7 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 /*=======================================*/
 .hide480-down(none){
 @media (max-width: @break_m){
-    opacity: 0;
+    display: none;
 }
 }
 
@@ -3893,7 +4453,7 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
 /*=======================================*/
 .hide576-down(none){
 @media (max-width: @break_xs){
-    opacity: 0;
+    display: none;
 }
 }
 
