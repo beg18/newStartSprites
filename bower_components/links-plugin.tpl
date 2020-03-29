@@ -75,6 +75,8 @@ https://vivazzi.pro/it/jquery-scrollto/
 =====================================================================
 gulp-uncss - удаление неиспользуемого css UnCSS Online!
 https://uncss-online.com/
+============================WEBP=====================================
+https://squoosh.app/
 
 
 

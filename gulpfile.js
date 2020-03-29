@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     removeComments = require('gulp-strip-css-comments'),
     cheerio = require('gulp-cheerio'),
+    webp = require('imagemin-webp'),
     imagemin = require('gulp-imagemin'),
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
@@ -12,6 +13,7 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     plumber = require("gulp-plumber"),
     replace = require('gulp-replace'),
+    extReplace = require('gulp-ext-replace'),
     rigger = require('gulp-rigger'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
@@ -22,7 +24,7 @@ var gulp = require('gulp'),
     del          = require('del'),
     newer        = require('gulp-newer'),
     rename       = require('gulp-rename'),
-    responsive   = require('gulp-responsive'),
+   /* responsive   = require('gulp-responsive'), */
     spritesmith = require("gulp.spritesmith"),
     rsync        = require('gulp-rsync'),
     browserSync = require('browser-sync').create();
@@ -33,9 +35,8 @@ var path = {
         html:   'src/*.html',
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
-        skins:  'src/css/skins/+(blue|red|tomato|pink|purple|green|orange).less',
-        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
-        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
+        allimg: 'src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
+        webp:   'src/i/**/*.{png,jpg,jpeg}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/fonts/**/*.*'
     },
@@ -44,9 +45,8 @@ var path = {
         html:   'assets/',
         js:     'assets/js/',
         css:    'assets/css/',
-        skins:  'assets/css/skins/',
-        resimg_1: 'assets/i/@1x',
-        resimg_2: 'assets/i/@2x',
+        allimg: 'assets/i/',
+        webp:   'assets/i/webp/',
         svg:    'assets/i/',
         fonts:  'assets/css/fonts/'
     },
@@ -55,16 +55,15 @@ var path = {
         html:   'src/**/*.html',
         js:     'src/js/*.js',
         css:    'src/css/**/*.less',
-        skins:  'src/css/skins/**/*.less',
-        resimg_1:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
-        resimg_2:'src/i/**/*.{png,jpg,jpeg,webp,raw,gif,ico}',
+        allimg: 'src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
+        webp:   'src/i/**/*.{png,jpg,jpeg}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/css/fonts/**/*.*'
     },
     clean: './assets'
 };
 
-gulp.task('browserSync',['css:assets','skins:assets' ,'js:assets'], function () {
+gulp.task('browserSync',['css:assets', 'js:assets'], function () {
     browserSync.init({
         server: {
             baseDir: path.assets
@@ -122,37 +121,6 @@ gulp.task('css:assets', function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('skins:assets', function () {
-    // Выберем наш style.less
-    gulp.src(path.src.skins)
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        // Скомпилируем
-        .pipe(less())
-        .pipe(gcmq())
-        // Добавим вендорные префиксы
-        .pipe(prefixer({
-           browsers: ['last 8 version']
-        }))
-        .pipe(cssbeautify())
-        .pipe(gulp.dest(path.assets.skins))
-        // Сожмем
-        .pipe(cssnano({
-          zindex: false,
-            discardComments: {
-              removeAll: true
-            }
-          }))
-        .pipe(sourcemaps.write())
-        .pipe(removeComments())
-        .pipe(rename({
-            suffix: ".min",
-            extname: ".css"
-        }))
-        // Переместим в assets
-        .pipe(gulp.dest(path.assets.skins))
-        .pipe(browserSync.reload({stream: true}));
-});
 
 gulp.task('js:assets', function () {
     // Выберем файлы по нужному пути
@@ -174,13 +142,15 @@ gulp.task('js:assets', function () {
 // Responsive Images
 var quality = 95; // Responsive images quality
 
-// Produce @1x images
-gulp.task('resimg_1:assets', function() {
-    return gulp.src(path.src.resimg_1)
-        .pipe(newer(path.assets.resimg_1))
-        .pipe(responsive({
-            '**/*': { width: '50%', quality: quality }
-        })).on('error', function (e) { console.log(e) })
+// Produce @2x images
+gulp.task('allimg:assets', function() {
+    return gulp.src(path.src.allimg)
+        .pipe(newer(path.assets.allimg))
+
+        //.pipe(responsive({
+           // '**/*': { width: '100%', quality: quality }
+        //})).on('error', function (e) { console.log(e) })
+
         // Сожмем их
         .pipe(imagemin([
             imagemin.jpegtran({progressive: true}),
@@ -195,31 +165,21 @@ gulp.task('resimg_1:assets', function() {
         ]))
         // Переместим в assets
         .pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
-        .pipe(gulp.dest(path.assets.resimg_1))
+        .pipe(gulp.dest(path.assets.allimg))
 });
 
-// Produce @2x images
-gulp.task('resimg_2:assets', function() {
-    return gulp.src(path.src.resimg_2)
-        .pipe(newer(path.assets.resimg_2))
-        .pipe(responsive({
-            '**/*': { width: '100%', quality: quality }
-        })).on('error', function (e) { console.log(e) })
+
+// Produce webp
+gulp.task('webp:assets', function() {
+    return gulp.src(path.src.webp)
+        .pipe(newer(path.assets.webp))
+
         // Сожмем их
         .pipe(imagemin([
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-                loops: 5,
-                min: 65,
-                max: 70,
-                quality: 'medium'
-            }),
-            imagemin.optipng({optimizationLevel: 3}),
-            pngquant({quality: '65-70', speed: 5})
+            webp({quality: 50})
         ]))
-        // Переместим в assets
-        .pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
-        .pipe(gulp.dest(path.assets.resimg_2))
+        .pipe(extReplace('.webp'))
+        .pipe(gulp.dest(path.assets.webp))
 });
 
 gulp.task('svg:assets', function () {
@@ -304,17 +264,13 @@ gulp.task('assets', [
     'html:assets',
     'js:assets',
     'css:assets',
-    'skins:assets',
-    'resimg_1:assets',
-    'resimg_2:assets',
+    'allimg:assets',
+    'webp:assets',
     'sprites:assets',
     'svg:assets',
     'fonts:assets',
     'gcmd:assets'
 ]);
-
-
-
 
 gulp.task('watch' , function() {
     watch([path.watch.html], function(event, cb) {
@@ -323,17 +279,16 @@ gulp.task('watch' , function() {
     watch([path.watch.css], function(event, cb) {
         gulp.start('css:assets');
     });
-    watch([path.watch.skins], function(event, cb) {
-        gulp.start('skins:assets');
-    });
+
     watch([path.watch.js], function(event, cb) {
         gulp.start('js:assets');
     });
+    
     watch([path.watch.allimg], function(event, cb) {
-        gulp.start('resimg_1:assets');
+        gulp.start('allimg:assets');
     });
-    watch([path.watch.allimg], function(event, cb) {
-        gulp.start('resimg_2:assets');
+    watch([path.watch.webp], function(event, cb) {
+        gulp.start('webp:assets');
     });
     watch([path.watch.allimg], function(event, cb) {
         gulp.start('sprites:assets');
@@ -348,9 +303,6 @@ gulp.task('watch' , function() {
         gulp.start('gcmd:assets');
     });
 });
-
-
-
 
 gulp.task('default', ['browserSync', 'assets', 'watch']);
 gulp.task('clean', ['cleanimg','cleanLess']);

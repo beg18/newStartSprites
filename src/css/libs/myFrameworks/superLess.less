@@ -1059,6 +1059,224 @@ i.material-icons {
      transition: all .5s ease-in-out;
      cursor: pointer;
 }
+.container-xxs(){
+
+}
+.container-auto-xxs(@padding: 20, @content){
+    .xxs-block({
+        width: auto;
+        padding: 0 ~"@{padding}px";
+        @content();
+    });
+}
+
+.container-auto-xs(@padding: 20,@content){
+    .xs-block({
+        width: auto;
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.container-auto-sm(@padding: 20,@content){
+    .sm-block({
+        width: auto;
+        padding: 0 ~"@{padding}px";
+        @content();
+    });
+}
+
+.container-auto-md(@padding: 20,@content){
+    .md-block({
+        width: auto;
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.container-auto-lg(@padding: 20,@content){
+    .lg-block({
+        width: auto;
+        padding: 0 ~"@{padding}px";
+        @content();
+    });
+}
+
+.container-xxs(@width: 280, @padding: 20,@content){
+    .xxs-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+        @content();
+    });
+}
+
+.container-xs(@width: 380, @padding: 20,@content){
+    .xs-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+        @content();
+    });
+}
+
+.container-xs(@width: 576, @padding: 40,@content){
+    .xs-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.container-sm(@width: 640, @padding: 64,@content){
+    .sm-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.container-md(@width: 960, @padding: 64,@content){
+    .md-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.container-lg(@width: 1088, @padding: 64,@content){
+    .md-block({
+        width: ~"@{width}px";
+        padding: 0 ~"@{padding}px";
+         @content();
+    });
+}
+
+.max-width(@px){
+    @remValue: (@px/@fontBasePx);
+    @Value: round(@remValue,2);
+
+    @pxValue: @px;
+    max-width: ~"@{pxValue}px";
+    max-width: ~"@{Value}rem";
+}
+.max-width-per(@px){
+    @perValue: @px;
+    max-width: ~"@{perValue}%";
+}
+
+.container-maxMin (){}
+
+.container-maxMin(@max-width: 100; @min-width: 320) {
+    @percent: @max-width;
+    @px:@min-width ;
+  max-width: ~"@{percent}%";
+  min-width: ~"@{px}px";
+}
+
+
+.container-my() {
+  padding: 0.01em 16px;
+  box-sizing: border-box;
+  .container{
+    &:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+}
+
+.container {
+    &:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+}
+}
+.wrap-content(){}
+
+.wrap-content(@max-width: 990; @min-width: 320) {
+    @maxPx: @max-width;
+    @minPx: @min-width ;
+  min-width: ~"@{minPx}px";
+  max-width: ~"@{maxPx}px";
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.content(){}
+.content(@max-width: 990){
+    @maxPx: @max-width;
+    max-width: ~"@{maxPx}px";
+    margin: auto;
+}
+
+
+.col-grow() {
+  position: relative;
+  width: 100%;
+  .col-offsets(padding);
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+
+
+.col-grow-lg(){
+  .lg-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+  });
+}
+
+.col-grow-md(){
+  .md-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+  });
+}
+
+.col-grow-sm(){
+  .sm-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+  });
+}
+
+.col-grow-xs(){
+  .xs-block({
+     position: relative;
+      width: 100%;
+      .col-offsets(padding);
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+  });
+}
+
+.col-grow-xxs(){
+  .xxs-block({
+      position: relative;
+      width: 100%;
+      .col-offsets(padding);
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+  });
+}
 
 .col-flex(@n) {
   @val: (100% / @columns * @n);
@@ -1067,7 +1285,6 @@ i.material-icons {
   position: relative;
   width: 100%;
   .col-offsets(padding);
-  -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
   flex: 0 0 ~"calc(@{n_val} - @{offset})";
   max-width: ~"calc(@{n_val} - @{offset})";
 }
@@ -1080,7 +1297,6 @@ i.material-icons {
   width: 100%;
   .col-offsets(padding);
   .lg-block({
-        -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
         flex: 0 0 ~"calc(@{n_val} - @{offset})";
         max-width: ~"calc(@{n_val} - @{offset})";
   });
@@ -1094,9 +1310,8 @@ i.material-icons {
   width: 100%;
   .col-offsets(padding);
   .md-block({
-      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  max-width: ~"calc(@{n_val} - @{offset})";
+    flex: 0 0 ~"calc(@{n_val} - @{offset})";
+    max-width: ~"calc(@{n_val} - @{offset})";
   });
 }
 
@@ -1108,9 +1323,8 @@ i.material-icons {
   width: 100%;
   .col-offsets(padding);
  .sm-block({
-      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  max-width: ~"calc(@{n_val} - @{offset})";
+    flex: 0 0 ~"calc(@{n_val} - @{offset})";
+    max-width: ~"calc(@{n_val} - @{offset})";
   });
 }
 
@@ -1122,9 +1336,8 @@ i.material-icons {
   width: 100%;
   .col-offsets(padding);
   .xs-block({
-      -ms-flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  flex: 0 0 ~"calc(@{n_val} - @{offset})";
-  max-width: ~"calc(@{n_val} - @{offset})";
+    flex: 0 0 ~"calc(@{n_val} - @{offset})";
+    max-width: ~"calc(@{n_val} - @{offset})";
   });
 }
 
@@ -1136,87 +1349,8 @@ i.material-icons {
   width: 100%;
   .col-offsets(padding);
   .xxs-block({
-      -ms-flex: 0 0 ~"calc(@{val} - @{offset})";
-      flex: 0 0 ~"calc(@{val} - @{offset})";
-      max-width: ~"calc(@{val} - @{offset})";
-  });
-}
-
-.col-grow() {
-  position: relative;
-  width: 100%;
-  .col-offsets(padding);
- -ms-flex-preferred-size: 0;
-  flex-basis: 0;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: 100%;
-}
-
-
-
-.col-grow-lg(){
-  .lg-block({
-      position: relative;
-      width: 100%;
-      .col-offsets(padding);
-     -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
-  });
-}
-
-.col-grow-md(){
-  .md-block({
-      position: relative;
-      width: 100%;
-      .col-offsets(padding);
-     -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
-  });
-}
-
-.col-grow-sm(){
-  .sm-block({
-      position: relative;
-      width: 100%;
-      .col-offsets(padding);
-     -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
-  });
-}
-
-.col-grow-xs(){
-  .xs-block({
-     position: relative;
-      width: 100%;
-      .col-offsets(padding);
-     -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
-  });
-}
-
-.col-grow-xxs(){
-  .xxs-block({
-      position: relative;
-      width: 100%;
-      .col-offsets(padding);
-     -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
+      flex: 0 0 ~"calc(@{n_val} - @{offset})";
+      max-width: ~"calc(@{n_val} - @{offset})";
   });
 }
 
@@ -1346,6 +1480,133 @@ i.material-icons {
 
   .xxs(flex,0 0 ~"calc(@{n_val} - @{offset_xxs})");
   .xxs(max-width, ~"calc(@{n_val} - @{offset_xxs})");
+}
+
+
+.panel() {
+  padding: 0.01em 16px;
+}
+
+.panel() {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.z-depth-0() {
+    box-shadow: none ;
+}
+
+.z-depth-1(@color: #000) {
+box-shadow: 0 2px 2px 0 fadeout(@color, 14%), 0 3px 1px -2px fadeout(@color, 12%), 0 1px 5px 0 fadeout(@color, 20%);
+}
+
+.z-depth-1-half(@color: #000){
+box-shadow: 0 3px 3px 0 fadeout(@color, 14%), 0 1px 7px 0 fadeout(@color, 12%), 0 3px 1px -1px fadeout(@color, 20%);
+}
+
+/* 6dp elevation modified*/
+.z-depth-2(@color: #000) {
+box-shadow: 0 4px 5px 0 fadeout(@color, 14%), 0 1px 10px 0 fadeout(@color, 12%), 0 2px 4px -1px fadeout(@color, 20%);
+}
+
+/* 12dp elevation modified*/
+.z-depth-3(@color: #000) {
+box-shadow: 0 8px 17px 2px fadeout(@color, 14%), 0 3px 14px 2px fadeout(@color, 12%), 0 5px 5px -3px fadeout(@color, 20%);
+}
+
+/* 16dp elevation */
+.z-depth-4(@color: #000) {
+box-shadow: 0 16px 24px 2px fadeout(@color, 14%), 0 6px 30px 5px fadeout(@color, 12%), 0 8px 10px -7px fadeout(@color, 20%);
+}
+
+/* 24dp elevation */
+.z-depth-5(@color: #000) {
+box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color, 12%), 0 11px 15px -7px fadeout(@color, 20%);
+}
+
+.card () {
+}
+
+
+.card (@color: #000;@px_1: 5; @px_2: 15; @per:90) {
+  @perValue: @per;
+  @pxVal_1: @px_1;
+  @pxVal_2: @px_2;
+  box-shadow: 0 ~"@{pxVal_1}px" ~"@{pxVal_2}px" 0 fadeout(@color, ~"@{perValue}%");
+}
+
+.card-2(@color: #000) {
+  box-shadow: 0 2px 8px 0 fadeout(@color, 18%), 0 2px 16px 0 fadeout(@color, 0.14);
+}
+
+.card-3(@color: #000) {
+  box-shadow: 0 4px 10px 0 fadeout(@color, 20%), 0 4px 20px 0 fadeout(@color, 16%);
+}
+
+.card-4(@color: #000) {
+  box-shadow: 0 4px 12px 0 fadeout(@color, 22%), 0 4px 24px 0 fadeout(@color, 18%);
+}
+
+.card-5(@color: #000) {
+  box-shadow: 0 4px 14px 0 fadeout(@color, 24%), 0 4px 28px 0 fadeout(@color, 20%);
+}
+
+.card-6(@color: #000) {
+  box-shadow: 0 6px 16px 0 fadeout(@color, 28%), 0 6px 32px 0 fadeout(@color, 24%);
+}
+
+.card-7(@color) {
+  box-shadow: 0 6px 18px 0 fadeout(@color, 32%), 0 6px 36px 0 fadeout(@color, 28%);
+}
+
+.card-8(@color) {
+  box-shadow: 0 8px 20px 0 fadeout(@color, 36%), 0 8px 40px 0 fadeout(@color, 34%);
+}
+
+.card-inset () {
+  box-shadow: 0 0 0 4px @color inset;
+}
+
+.card-inset (@value: 4, @color: #000) {
+   @pxValue: @value;
+  box-shadow: 0 0 0 ~"@{pxValue}px" @color inset;
+}
+
+.card-bot () {
+  box-shadow: 0 4px 0 @color;
+}
+
+.card-bot(@value: 4, @color: #000) {
+    @pxValue: @value;
+  box-shadow: 0 ~"@{pxValue}px" 0 0 @color;
+}
+
+.card-inset-2(@color: #000) {
+  box-shadow: 0 2px 8px 0 fadeout(@color, 18%) inset;
+}
+
+.card-inset-3(@color: #000) {
+  box-shadow: 0 4px 10px 0 fadeout(@color, 20%) inset;
+}
+
+.card-inset-4(@color: #000) {
+  box-shadow: 0 4px 12px 0 fadeout(@color, 22%) inset;
+}
+
+.card-inset-5(@color: #000) {
+  box-shadow: 0 4px 14px 0 fadeout(@color, 24%) inset;
+}
+
+.card-inset-6(@color: #000) {
+  box-shadow: 0 6px 16px 0 fadeout(@color, 28%) inset;
+}
+
+.card-inset-7(@color) {
+  box-shadow: 0 6px 18px 0 fadeout(@color, 32%) inset;
+}
+
+.card-inset-8(@color) {
+  box-shadow: 0 8px 20px 0 fadeout(@color, 36%) inset;
 }
 
 .order(){}
@@ -2304,7 +2565,7 @@ i.material-icons {
   padding-top: 25px;
   height: 0;
 
-   iframe {
+   iframe, img {
   position: absolute;
   top: 0;
   left: 0;
@@ -2559,189 +2820,6 @@ i.material-icons {
   &:hover{
   border-color: @color;
 }
-}
-.max-width(@px){
-    @remValue: (@px/@fontBasePx);
-    @Value: round(@remValue,2);
-
-    @pxValue: @px;
-    max-width: ~"@{pxValue}px";
-    max-width: ~"@{Value}rem";
-}
-.max-width-per(@px){
-    @perValue: @px;
-    max-width: ~"@{perValue}%";
-}
-
-.container-maxMin (){}
-
-.container-maxMin(@max-width: 100; @min-width: 320) {
-    @percent: @max-width;
-    @px:@min-width ;
-  max-width: ~"@{percent}%";
-  min-width: ~"@{px}px";
-}
-.wrap-content(){}
-
-.wrap-content(@max-width: 990; @min-width: 320) {
-    @maxPx: @max-width;
-    @minPx: @min-width ;
-  min-width: ~"@{minPx}px";
-  max-width: ~"@{maxPx}px";
-  padding: 0 15px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.content(){
-    max-width: 980px;
-    margin: auto;
-}
-
-.container-my() {
-  padding: 0.01em 16px;
-  box-sizing: border-box;
-  .container{
-    &:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-}
-
-.container {
-    &:before {
-    content: "";
-    display: table;
-    clear: both;
-}
-}
-}
-
-.panel() {
-  padding: 0.01em 16px;
-}
-
-.panel() {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-.z-depth-0() {
-    box-shadow: none ;
-}
-
-.z-depth-1(@color: #000) {
-box-shadow: 0 2px 2px 0 fadeout(@color, 14%), 0 3px 1px -2px fadeout(@color, 12%), 0 1px 5px 0 fadeout(@color, 20%);
-}
-
-.z-depth-1-half(@color: #000){
-box-shadow: 0 3px 3px 0 fadeout(@color, 14%), 0 1px 7px 0 fadeout(@color, 12%), 0 3px 1px -1px fadeout(@color, 20%);
-}
-
-/* 6dp elevation modified*/
-.z-depth-2(@color: #000) {
-box-shadow: 0 4px 5px 0 fadeout(@color, 14%), 0 1px 10px 0 fadeout(@color, 12%), 0 2px 4px -1px fadeout(@color, 20%);
-}
-
-/* 12dp elevation modified*/
-.z-depth-3(@color: #000) {
-box-shadow: 0 8px 17px 2px fadeout(@color, 14%), 0 3px 14px 2px fadeout(@color, 12%), 0 5px 5px -3px fadeout(@color, 20%);
-}
-
-/* 16dp elevation */
-.z-depth-4(@color: #000) {
-box-shadow: 0 16px 24px 2px fadeout(@color, 14%), 0 6px 30px 5px fadeout(@color, 12%), 0 8px 10px -7px fadeout(@color, 20%);
-}
-
-/* 24dp elevation */
-.z-depth-5(@color: #000) {
-box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color, 12%), 0 11px 15px -7px fadeout(@color, 20%);
-}
-
-.card () {
-}
-
-
-.card (@color: #000;@px_1: 5; @px_2: 15; @per:90) {
-  @perValue: @per;
-  @pxVal_1: @px_1;
-  @pxVal_2: @px_2;
-  box-shadow: 0 ~"@{pxVal_1}px" ~"@{pxVal_2}px" 0 fadeout(@color, ~"@{perValue}%");
-}
-
-.card-2(@color: #000) {
-  box-shadow: 0 2px 8px 0 fadeout(@color, 18%), 0 2px 16px 0 fadeout(@color, 0.14);
-}
-
-.card-3(@color: #000) {
-  box-shadow: 0 4px 10px 0 fadeout(@color, 20%), 0 4px 20px 0 fadeout(@color, 16%);
-}
-
-.card-4(@color: #000) {
-  box-shadow: 0 4px 12px 0 fadeout(@color, 22%), 0 4px 24px 0 fadeout(@color, 18%);
-}
-
-.card-5(@color: #000) {
-  box-shadow: 0 4px 14px 0 fadeout(@color, 24%), 0 4px 28px 0 fadeout(@color, 20%);
-}
-
-.card-6(@color: #000) {
-  box-shadow: 0 6px 16px 0 fadeout(@color, 28%), 0 6px 32px 0 fadeout(@color, 24%);
-}
-
-.card-7(@color) {
-  box-shadow: 0 6px 18px 0 fadeout(@color, 32%), 0 6px 36px 0 fadeout(@color, 28%);
-}
-
-.card-8(@color) {
-  box-shadow: 0 8px 20px 0 fadeout(@color, 36%), 0 8px 40px 0 fadeout(@color, 34%);
-}
-
-.card-inset () {
-  box-shadow: 0 0 0 4px @color inset;
-}
-
-.card-inset (@value: 4, @color: #000) {
-   @pxValue: @value;
-  box-shadow: 0 0 0 ~"@{pxValue}px" @color inset;
-}
-
-.card-bot () {
-  box-shadow: 0 4px 0 @color;
-}
-
-.card-bot(@value: 4, @color: #000) {
-    @pxValue: @value;
-  box-shadow: 0 ~"@{pxValue}px" 0 0 @color;
-}
-
-.card-inset-2(@color: #000) {
-  box-shadow: 0 2px 8px 0 fadeout(@color, 18%) inset;
-}
-
-.card-inset-3(@color: #000) {
-  box-shadow: 0 4px 10px 0 fadeout(@color, 20%) inset;
-}
-
-.card-inset-4(@color: #000) {
-  box-shadow: 0 4px 12px 0 fadeout(@color, 22%) inset;
-}
-
-.card-inset-5(@color: #000) {
-  box-shadow: 0 4px 14px 0 fadeout(@color, 24%) inset;
-}
-
-.card-inset-6(@color: #000) {
-  box-shadow: 0 6px 16px 0 fadeout(@color, 28%) inset;
-}
-
-.card-inset-7(@color) {
-  box-shadow: 0 6px 18px 0 fadeout(@color, 32%) inset;
-}
-
-.card-inset-8(@color) {
-  box-shadow: 0 8px 20px 0 fadeout(@color, 36%) inset;
 }
 
 
