@@ -77,8 +77,13 @@ gulp-uncss - удаление неиспользуемого css UnCSS Online!
 https://uncss-online.com/
 ============================WEBP=====================================
 https://squoosh.app/
-
-
+================Джентльменский набор Front-end разработчика==========
+https://pugofka.com/blog/technology/the-prepared-starting-package-front-end-development-on-gulp/
+================Online Font Converter / Web Font Generator==========
+конвертер ttf в woff woff2:
+https://font-converter.net
+================================favicons====================================
+https://favicon.io/favicon-converter/
 
 
 

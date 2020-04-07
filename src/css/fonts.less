@@ -71,16 +71,19 @@ http://chimir.ru/post/39:
 // 900 Extra Black or Fat or Ultra Black
 
 
-.add-font(@font-url, @font-name, @weight: normal, @style: normal) {
+.add-font(@font-url, @font-name, @weight: normal, @style: normal, @f-display:swap) {
   font-family: @font-name;
   src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
   src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff2') format('woff2'), /* Modern Browsers */
   url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
   url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
   url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
   font-weight: @weight;
   font-style: @style;
+  font-display: @f-display;
 }
+
 /*========================
 https://icomoon.io/
 нажимаем на IcoMoon App-> нажимаем на кнопку с книжками add Icon library->
@@ -161,19 +164,19 @@ https://icomoon.io/
   .add-font('RobotoRegular/RobotoRegular', 'Roboto', 400);
 }
 
-// RRoboto Medium
+// Roboto Medium
 @font-face {
   .add-font('RobotoMedium/RobotoMedium', 'Roboto', 500);
 }
 
-// PTSerif-Regular
+// Roboto Bold
 @font-face {
-  .add-font('PTSerif-Regular/PTSerif-Regular', 'PTSerif', 400);
+  .add-font('RobotoBold/RobotoBold', 'Roboto', 700);
 }
 
 // PTSerif-Bold
 @font-face {
-  .add-font('PTSerif-Bold/PTSerif-Bold', 'PTSerif', 700);
+  .add-font('Exo2Bold/Exo2Bold', 'Exo2Bold', 700);
 }
 
 

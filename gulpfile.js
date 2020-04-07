@@ -1,31 +1,33 @@
-var gulp = require('gulp'),
-    less = require('gulp-less'),
-    prefixer = require('gulp-autoprefixer'),
+var gulp = require('gulp'), //основной плагин gulp
+    htmlmin = require('gulp-htmlmin'),
+    less = require('gulp-less'), //препроцессор
+    prefixer = require('gulp-autoprefixer'),//расставление автопрефиксов
     cssbeautify = require("gulp-cssbeautify"),
+    uncss = require('gulp-uncss'),
     cssnano = require('gulp-cssnano'),
     removeComments = require('gulp-strip-css-comments'),
     cheerio = require('gulp-cheerio'),
     webp = require('imagemin-webp'),
-    imagemin = require('gulp-imagemin'),
+    imagemin = require('gulp-imagemin'),//минимизация изображений
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
     imageminJpegRecompress = require('imagemin-jpeg-recompress'),
     pngquant = require('imagemin-pngquant'),
-    plumber = require("gulp-plumber"),
+    plumber = require("gulp-plumber"),//предохранитель для остановки гальпа
     replace = require('gulp-replace'),
     extReplace = require('gulp-ext-replace'),
-    rigger = require('gulp-rigger'),
-    uglify = require('gulp-uglify'),
-    watch = require('gulp-watch'),
-    rimraf = require('rimraf'),
+    rigger = require('gulp-rigger'), //работа с инклюдами в html и js
+    uglify = require('gulp-uglify'),//минификация js
+    watch = require('gulp-watch'), //расширение возможностей watch
+    rimraf = require('rimraf'), //очистка
     gcmq = require('gulp-group-css-media-queries'),
-    sourcemaps = require('gulp-sourcemaps'),
+    sourcemaps = require('gulp-sourcemaps'), //sourcemaps
     run = require("run-sequence"),
     del          = require('del'),
     newer        = require('gulp-newer'),
-    rename       = require('gulp-rename'),
+    rename       = require('gulp-rename'),//переименвоание файлов
    /* responsive   = require('gulp-responsive'), */
-    spritesmith = require("gulp.spritesmith"),
+    spritesmith = require("gulp.spritesmith"),//объединение картинок в спрайты
     rsync        = require('gulp-rsync'),
     browserSync = require('browser-sync').create();
 
@@ -36,7 +38,7 @@ var path = {
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
         allimg: 'src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
-        webp:   'src/i/**/*.{png,jpg,jpeg}',
+        webp:   'src/i/*.{png,jpg,jpeg}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/fonts/**/*.*'
     },
@@ -56,7 +58,7 @@ var path = {
         js:     'src/js/*.js',
         css:    'src/css/**/*.less',
         allimg: 'src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
-        webp:   'src/i/**/*.{png,jpg,jpeg}',
+        webp:   'src/i/*.{png,jpg,jpeg}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/css/fonts/**/*.*'
     },
@@ -88,6 +90,16 @@ gulp.task('html:assets', function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('htmlmin', function () {
+     // Выберем файлы по нужному пути
+    gulp.src(path.src.html)
+        .pipe(plumber())
+        // Прогоним через rigger
+        .pipe(rigger())
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        // Переместим их в папку assets
+        .pipe(gulp.dest(path.assets.html));
+});
 
 gulp.task('css:assets', function () {
     // Выберем наш style.less
@@ -102,7 +114,9 @@ gulp.task('css:assets', function () {
            browsers: ['last 8 version']
         }))
         .pipe(cssbeautify())
+
         .pipe(gulp.dest(path.assets.css))
+
         // Сожмем
         .pipe(cssnano({
           zindex: false,
@@ -116,11 +130,48 @@ gulp.task('css:assets', function () {
             suffix: ".min",
             extname: ".css"
         }))
+
         // Переместим в assets
         .pipe(gulp.dest(path.assets.css))
         .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('uncss:assets', function () {
+     // Выберем наш style.less
+    return  gulp.src(path.src.css)
+        .pipe(plumber())
+        .pipe(sourcemaps.init())
+        // Скомпилируем
+        .pipe(less())
+        .pipe(uncss({
+                html:['assets/index.html','assets/**/*.html']
+        }))
+        .pipe(gcmq())
+        // Добавим вендорные префиксы
+        .pipe(prefixer({
+           browsers: ['last 8 version']
+        }))
+        .pipe(cssbeautify())
+
+        .pipe(gulp.dest(path.assets.css))
+
+        // Сожмем
+        .pipe(cssnano({
+            zindex: false,
+                discardComments: {
+                    removeAll: true
+                }
+            }))
+        .pipe(sourcemaps.write())
+        .pipe(removeComments())
+        .pipe(rename({
+                suffix: ".min",
+                extname: ".css"
+        }))
+
+        // Переместим в assets
+        .pipe(gulp.dest('assets/css/'));
+});
 
 gulp.task('js:assets', function () {
     // Выберем файлы по нужному пути
@@ -128,9 +179,11 @@ gulp.task('js:assets', function () {
         .pipe(plumber())
         // Прогоним через rigger
         .pipe(rigger())
+        .pipe(sourcemaps.init()) //Инициализируем sourcemap
         .pipe(gulp.dest(path.assets.js))
         // Сожмем js
         .pipe(uglify())
+        .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(rename({
             suffix: ".min",
             extname: ".js"
@@ -263,6 +316,7 @@ gulp.task('gcmd:assets', function(){
 gulp.task('assets', [
     'html:assets',
     'js:assets',
+    /*'uncss:assets', */
     'css:assets',
     'allimg:assets',
     'webp:assets',
@@ -276,6 +330,11 @@ gulp.task('watch' , function() {
     watch([path.watch.html], function(event, cb) {
         gulp.start('html:assets');
     });
+   /*
+    watch([path.watch.css], function(event, cb) {
+        gulp.start('uncss:assets');
+    });*/
+
     watch([path.watch.css], function(event, cb) {
         gulp.start('css:assets');
     });
@@ -305,4 +364,4 @@ gulp.task('watch' , function() {
 });
 
 gulp.task('default', ['browserSync', 'assets', 'watch']);
-gulp.task('clean', ['cleanimg','cleanLess']);
+gulp.task('uncss', ['htmlmin', 'uncss:assets','cleanimg','cleanLess']);
