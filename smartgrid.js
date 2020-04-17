@@ -4,18 +4,19 @@ smartgrid('src/css/libs', {
     mobileFirst: false,
     filename: "smart-grid",
     columns: 12,
-    offset: "30px",
+    offset: "20px",
     container: {
-        maxWidth: "1190px"
+        maxWidth: "1140px",
+        fields: "20px"
     },
     breakPoints: {
         lg: {
-            width: "1300px",
-            fields: "15px"
+            width: "1200px",
+            fields: "10px"
         },
         md: {
             width: "992px",
-            fields: "15px"
+            fields: "10px"
         },
         sm: {
             width: "768px"
@@ -24,7 +25,7 @@ smartgrid('src/css/libs', {
             width: "576px"
         },
         xxs: {
-            width: "380px"
+            width: "320px"
         }
     },
     mixinNames: {

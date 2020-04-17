@@ -92,13 +92,26 @@ https://icomoon.io/
 распакуем архив шрифты из папки font переносим в папку font проекта->
 код из файла style.css вставим в код font.less 
 ========================*/
+@font-face{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/slick.eot');
+    src: url('fonts/slick.eot?#iefix')format('embedded-opentype'),
+    url('fonts/slick.woff')format('woff'),
+    url('fonts/slick.ttf')format('truetype'),
+    url('fonts/slick.svg#slick')
+    format('svg');
+}
+
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?fzjwo');
-  src:  url('../fonts/icomoon.eot?fzjwo#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?fzjwo') format('truetype'),
-    url('../fonts/icomoon.woff?fzjwo') format('woff'),
-    url('../fonts/icomoon.svg?fzjwo#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?fzjwo');
+  src:  url('fonts/icomoon.eot?fzjwo#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fzjwo') format('truetype'),
+    url('fonts/icomoon.woff?fzjwo') format('woff'),
+    url('fonts/icomoon.svg?fzjwo#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -154,29 +167,19 @@ https://icomoon.io/
 }
 
 
-// Roboto Light
+// museosanscyrl Light
 @font-face {
-  .add-font('RobotoLight/RobotoLight', 'Roboto', 300);
+  .add-font('MuseoSansCyrl-300/museosanscyrl-300woff', 'museosanscyrl', 300);
 }
 
-// Roboto Regular
+// museosanscyrl Medium
 @font-face {
-  .add-font('RobotoRegular/RobotoRegular', 'Roboto', 400);
+  .add-font('MuseoSansCyrl-500/museosanscyrl-500', 'museosanscyrl', 500);
 }
 
-// Roboto Medium
+// museosanscyrl Bold
 @font-face {
-  .add-font('RobotoMedium/RobotoMedium', 'Roboto', 500);
-}
-
-// Roboto Bold
-@font-face {
-  .add-font('RobotoBold/RobotoBold', 'Roboto', 700);
-}
-
-// PTSerif-Bold
-@font-face {
-  .add-font('Exo2Bold/Exo2Bold', 'Exo2Bold', 700);
+  .add-font('MuseoSansCyrl-700/museosanscyrl-700', 'museosanscyrl', 700);
 }
 
 

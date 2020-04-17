@@ -1,19 +1,20 @@
 @import "../../_variables.less";
 @import "../../../../bower_components/lesshat/lesshat.less";
-@import "../../../../bower_components/LESS elements mixins/lesselements";
 
-.font-face(@family, @filename: @family, @weight: normal, @style: normal){
-    @font-face{
-        font-family: @family;
-        src:url('../fonts/@{filename}.eot');
-        src:url('../fonts/@{filename}.eot?#iefix') format('embedded-opentype'),
-                url('../fonts/@{filename}.woff') format('woff'),
-                url('../fonts/@{filename}.ttf') format('truetype'),
-                url('../fonts/@{filename}.svg#@{filename}') format('svg');
-        font-weight: @weight;
-        font-style: @style;
+
+.add-font(@font-url, @font-name, @weight: normal, @style: normal, @f-display:swap) {
+  font-family: @font-name;
+  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
+  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff2') format('woff2'), /* Modern Browsers */
+  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
+  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
+  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
+  font-weight: @weight;
+  font-style: @style;
+  font-display: @f-display;
 }
-}
+
 .html-fz(@sizeValue) {
     @remValue: (@sizeValue/@fontBasePx);
     @pxValue: @sizeValue;
@@ -5845,4 +5846,11 @@ box-shadow: 0 24px 38px 3px fadeout(@color, 14%), 0 9px 46px 8px fadeout(@color,
    .l12(){
         @media (min-width: @break_md){width: 99.99999%; }
     }
+
+
+
+
+
+
+
 

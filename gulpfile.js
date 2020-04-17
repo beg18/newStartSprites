@@ -7,6 +7,7 @@ var gulp = require('gulp'), //основной плагин gulp
     cssnano = require('gulp-cssnano'),
     removeComments = require('gulp-strip-css-comments'),
     cheerio = require('gulp-cheerio'),
+    favicons = require('gulp-favicons'),
     webp = require('imagemin-webp'),
     imagemin = require('gulp-imagemin'),//минимизация изображений
     svgSprite = require('gulp-svg-sprite'),
@@ -38,6 +39,7 @@ var path = {
         js:     'src/js/*.js',
         css:    'src/css/+(style|styles-percentage|styles-ie).less',
         allimg: 'src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
+        favicons: "src/i/favicon/*.{jpg,jpeg,png,gif}",
         webp:   'src/i/*.{png,jpg,jpeg}',
         svg:    'src/i/**/*.svg',
         fonts:  'src/fonts/**/*.*'
@@ -48,6 +50,7 @@ var path = {
         js:     'assets/js/',
         css:    'assets/css/',
         allimg: 'assets/i/',
+        favicons: 'assets/i/favicons/',
         webp:   'assets/i/webp/',
         svg:    'assets/i/',
         fonts:  'assets/css/fonts/'
@@ -235,6 +238,24 @@ gulp.task('webp:assets', function() {
         .pipe(gulp.dest(path.assets.webp))
 });
 
+gulp.task("favicons:assets", function () {
+    return gulp.src(path.src.favicons)
+        .pipe(favicons({
+            icons: {
+                appleIcon: true,
+                favicons: true,
+                online: false,
+                appleStartup: false,
+                android: false,
+                firefox: false,
+                yandex: false,
+                windows: false,
+                coast: false
+            }
+        }))
+        .pipe(gulp.dest(path.assets.favicons));
+});
+
 gulp.task('svg:assets', function () {
     gulp.src(path.src.svg)
         .pipe(svgmin({
@@ -316,7 +337,7 @@ gulp.task('gcmd:assets', function(){
 gulp.task('assets', [
     'html:assets',
     'js:assets',
-    /*'uncss:assets', */
+    'favicons:assets',
     'css:assets',
     'allimg:assets',
     'webp:assets',

@@ -84,6 +84,9 @@ https://pugofka.com/blog/technology/the-prepared-starting-package-front-end-deve
 https://font-converter.net
 ================================favicons====================================
 https://favicon.io/favicon-converter/
+===========================FONTS==============================================
+https://www.cufonfonts.com/font/
+http://www.font2web.com/
 
 
 
